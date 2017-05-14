@@ -9,13 +9,15 @@
   <!-- inject:css -->
   <!-- endinject -->
 </head>
-<body>
+<body ng-controller="LevelIndexCtrl as levelsIndex">
   <header>
     <ul>
       <li><a ui-sref="home">Home</a></li>
       <li><a ui-sref="levelsIndex">Levels</a></li>
-      </ul>
-    </header>
+    </ul>
+  </header>
+  <div class="container">
     <main ui-view></main>
-  </body>
-  </html>
+  </div>
+</body>
+</html>

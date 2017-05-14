@@ -22,7 +22,7 @@ function Router(
     .state('levelsIndex', {
       url: '/levels',
       templateUrl: '/js/views/levels/index.html',
-      controller: 'LevelIndexCtrl as vm'
+      controller: 'LevelIndexCtrl as levelsIndex'
     });
 
   $urlRouterProvider.otherwise('/');
