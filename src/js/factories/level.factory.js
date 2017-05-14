@@ -1,11 +1,11 @@
 angular
   .module('qwertyApp')
-  .factory('LevelFactory', LevelFactory);
+  .factory('Level', Level);
 
-LevelFactory.$inject = [
+Level.$inject = [
   '$resource'
 ];
-function LevelFactory(
+function Level(
   $resource
 ) {
   return $resource('http://localhost:4000/api/levels/:id', { id: '@_id' });

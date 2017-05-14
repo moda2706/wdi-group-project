@@ -2,12 +2,11 @@ angular
 .module('qwertyApp')
 .controller('LevelIndexCtrl', LevelIndexCtrl);
 
-LevelIndexCtrl.$inject = ['LevelFactory'];
+LevelIndexCtrl.$inject = ['Level'];
 
-function LevelIndexCtrl(LevelFactory) {
+function LevelIndexCtrl(Level) {
 
   const vm = this;
-  vm.levels = [];
-  vm.test = 'hello';
-  vm.levels = LevelFactory.query();
+  vm.all = Level.query();
+  // vm.test = 'hello Mr Test';
 }
