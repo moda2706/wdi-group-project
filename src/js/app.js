@@ -2,5 +2,6 @@
 angular
   .module('qwertyApp', [
     'ui.router',
-    'ngResource'
+    'ngResource',
+    'angular-jwt'
   ]);
