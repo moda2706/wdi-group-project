@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html ng-app="qwertyApp">
-  <head>
-    <meta charset="utf-8">
-    <title>QWERTY</title>
-    <!-- inject:js -->
-    <!-- endinject -->
-    <!-- inject:css -->
-    <!-- endinject -->
-  </head>
-  <body>
-
+<head>
+  <meta charset="utf-8">
+  <title>QWERTY</title>
+  <base href="/">
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+<body>
+  <header>
+    <ul>
+      <li><a ui-sref="home">Home</a></li>
+      <li><a ui-sref="levelsIndex">Levels</a></li>
+      </ul>
+    </header>
+    <main ui-view></main>
   </body>
-</html>
+  </html>
