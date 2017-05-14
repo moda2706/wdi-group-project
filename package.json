@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "bower install && gulp deploy",
-    "test": "node_modules/.bin/_mocha"
-
+    "test": "istanbul cover node_modules/.bin/_mocha"
   },
-  "author": "Alex Chin <alex@alexchin.co.uk>",
+  "author": "IPA",
   "license": "ISC",
   "gulp": {
     "srcDir": "src/",
@@ -84,6 +83,7 @@
     "gulp-strip-css-comments": "^1.2.0",
     "gulp-uglify": "^2.0.0",
     "htmlhint-stylish": "^1.0.3",
+    "istanbul": "^0.4.5",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
     "main-bower-files": "^2.13.1",
