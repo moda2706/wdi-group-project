@@ -1,6 +1,84 @@
 // Import all of your scss files here
+
 textarea {
   width: 100%;
   //visibility: hidden;
   // opacity: 0;
+}
+
+.gradient{
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+background: #207cca; /* Old browsers */
+background: -moz-linear-gradient(top, #207cca -1%, #3c96d2 0%, #207cca 0%, #3ee5ac 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #207cca -1%,#3c96d2 0%,#207cca 0%,#3ee5ac 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #207cca -1%,#3c96d2 0%,#207cca 0%,#3ee5ac 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207cca', endColorstr='#3ee5ac',GradientType=0 ); /* IE6-9 */
+transform: skew(0deg, -5deg);
+}
+
+
+
+
+body{
+  background: #FFF;
+  color: #FFF;
+}
+
+.skewed-bg{
+  background: -moz-linear-gradient(top, #207cca -1%, #3c96d2 0%, #207cca 0%, #3ee5ac 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #207cca -1%,#3c96d2 0%,#207cca 0%,#3ee5ac 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #207cca -1%,#3c96d2 0%,#207cca 0%,#3ee5ac 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207cca', endColorstr='#3ee5ac',GradientType=0 ); /* IE6-9 */
+
+  padding:  200px 0;
+  transform: skew(0deg, -5deg);
+  margin-top: -200px;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+
+  .content{
+    transform: skew(0deg, 5deg);
+    text-align: center;
+
+    .title{
+      padding-top: 100px;
+      font-weight: normal;
+    }
+
+    .text{
+      width:60%;
+      margin: 25px auto;
+      color: lighten(#00B285, 55);
+    }
+
+  }
+}
+
+.footer{
+  padding-top: 300px;
+
+  .credits{
+    text-align: center;
+    color: #666;
+
+    .link{
+      color: #00B285;
+      text-decoration: none;
+    }
+
+  }
+
+}
+nav{
+
+}
+
+.textC{
+  margin: 0 10%
 }
