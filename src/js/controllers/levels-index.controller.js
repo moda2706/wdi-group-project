@@ -9,5 +9,6 @@ function LevelIndexCtrl(Level) {
   const vm = this;
   vm.all = [];
   vm.all = Level.query();
+  console.log(vm.all);
   // vm.test = 'hello Mr Test';
 }

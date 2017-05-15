@@ -2,7 +2,5 @@
 <ul>
   <li ng-repeat="level in levelIndex.all track by $index" index="$index">
     <h3 ui-sref="levelsShow({ id: level._id })"> Level {{ level.index }} </h3>
-    <p>{{ level.content }} </p>
-    <p>{{ level._id }}</p>
   </li>
 </ul>
