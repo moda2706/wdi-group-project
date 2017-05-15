@@ -5,6 +5,12 @@ textarea {
   //visibility: hidden;
   // opacity: 0;
 }
+a{
+  cursor: pointer;
+}
+.levelText{
+  letter-spacing: 1px
+}
 
 .gradient{
   background-size: cover;
@@ -24,7 +30,6 @@ transform: skew(0deg, -5deg);
 
 body {
   background: #FFF;
-  color: #FFF;
 }
 
 .skewed-bg{
@@ -81,4 +86,9 @@ nav{
 
 .textC{
   margin: 0 10%
+}
+
+.wordsC{
+  padding: 10px;
+  background: azure;
 }

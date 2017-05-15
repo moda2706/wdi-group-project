@@ -1,26 +1,38 @@
 <!-- <div class="row">
-  <div class="col-md-6">
-    <img ng-src="{{ birdsShow.bird.image }}">
-  </div>
-  <div class="col-md-6">
-    <h2>{{ birdsShow.bird.name }}</h2>
-    <p><strong>{{ birdsShow.bird.latinName }}</strong> <em>{{ birdsShow.bird.family }}</em></p>
+<div class="col-md-6">
+<img ng-src="{{ birdsShow.bird.image }}">
+</div>
+<div class="col-md-6">
+<h2>{{ birdsShow.bird.name }}</h2>
+<p><strong>{{ birdsShow.bird.latinName }}</strong> <em>{{ birdsShow.bird.family }}</em></p>
 
-    <a ui-sref="birdsEdit({ id: birdsShow.bird.id })" class="btn btn-primary">Edit</a>
-    <button ng-click="birdsShow.delete()" class="btn btn-danger">Delete</button>
-  </div>
+<a ui-sref="birdsEdit({ id: birdsShow.bird.id })" class="btn btn-primary">Edit</a>
+<button ng-click="birdsShow.delete()" class="btn btn-danger">Delete</button>
+</div>
 </div> -->
+<div class="skewed-bg"></div>
 
-<h1 class="black"> Level: {{ levelsShow.level.index }} </h1>
-<h3 class="black"> Seconds left: {{ levelsShow.level.time }} </h3>
-<h3 class="black"> Score: {{ levelsShow.level.score }} </h3>
-<p class="black" id="textSource" ng-model="textSource"> {{ levelsShow.level.content }} </p>
-<textarea id="textInput" autofocus name="comment" form="usrform" ng-model="textInput" ng-change="output()">Enter text here...</textarea>
+
+
+<div class="textC br2">
+  <div class="wordsC ba bw3 br2">
+    <h1 class="br2 dib f4 bg-near-black white mv0 pv2 ph3">Level: {{ levelsShow.level.index }}</h1>
+    <h1 class="br2 dib f4 bg-near-black white mv0 pv2 ph3">Score: {{ levelsShow.level.score }}</h1>
+    <h1 class="br2 dib f4 bg-near-black white mv0 pv2 ph3">Seconds left: {{ levelsShow.level.time }}</h1>
+    <h1 class="br2 dib f4 bg-near-black white mv0 pv2 ph3">Speed: {{ 45}} wpm</h1>
+
+    <!-- <h1 class="black"> Level: {{ levelsShow.level.index }} </h1> -->
+    <!-- <h3 class="black"> Seconds left: {{ levelsShow.level.time }} </h3> -->
+    <!-- <h3 class="black"> Score: {{ levelsShow.level.score }} </h3> -->
+    <p class="black f4 levelText" id="textSource" ng-model="textSource"> {{ levelsShow.level.content }} </p>
+    <textarea id="textInput" autofocus name="comment" form="usrform" ng-model="textInput" ng-change="output()">Enter text here...</textarea>
+  </div>
+</div>
 
 
 <!-- <ul>
-  <li ng-repeat="level in levelIndex.all">
-    <a ui-sref="usersIndex"> Level {{ level.index }} </a>
-    <p>{{ level.content }} </p>
-  </li>
+<li ng-repeat="level in levelIndex.all">
+<a ui-sref="usersIndex"> Level {{ level.index }} </a>
+<p>{{ level.content }} </p>
+</li>
 </ul> -->
