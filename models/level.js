@@ -6,7 +6,8 @@ const levelSchema = new mongoose.Schema({
   // totalLevelsCompleted: { type: Number },
   score: { type: Number },
   time: { type: Number },
-  content: { type: String}
+  content: { type: String},
+  index: { type: Number }
 }, {
   timestamps: true
 });

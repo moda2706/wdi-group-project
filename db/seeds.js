@@ -13,12 +13,32 @@ Level
     {
       score: 0,
       time: 60,
-      content: 'What a lovely soup with small pasta extras...'
+      content: 'Text 1',
+      index: 0
     },
     {
       score: 0,
       time: 40,
-      content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      content: 'Text 2',
+      index: 1
+    },
+    {
+      score: 0,
+      time: 30,
+      content: 'Text 3',
+      index: 2
+    },
+    {
+      score: 0,
+      time: 20,
+      content: 'Text 4',
+      index: 3
+    },
+    {
+      score: 0,
+      time: 10,
+      content: 'Text 5',
+      index: 4
     }
   ])
   .then(levels => {
