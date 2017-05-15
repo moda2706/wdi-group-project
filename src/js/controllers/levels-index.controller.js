@@ -7,6 +7,7 @@ LevelIndexCtrl.$inject = ['Level'];
 function LevelIndexCtrl(Level) {
 
   const vm = this;
+  vm.all = [];
   vm.all = Level.query();
   // vm.test = 'hello Mr Test';
 }

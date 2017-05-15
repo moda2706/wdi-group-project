@@ -24,6 +24,11 @@ function Router(
     templateUrl: '/js/views/levels/index.html',
     controller: 'LevelIndexCtrl as levelIndex'
   })
+  .state('levelsShow', {
+    url: '/levels/:id',
+    templateUrl: '/js/views/levels/show.html',
+    controller: 'ShowIndexCtrl as levelsShow'
+  })
   .state('register', {
     url: '/register',
     templateUrl: '/js/views/register.html',

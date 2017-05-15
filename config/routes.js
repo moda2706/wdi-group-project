@@ -19,7 +19,7 @@ router.route('/users/:id')
 
 router.route('/levels')
   .get(levels.index);
-router.route('levels/:id')
+router.route('/levels/:id')
   .get(levels.show);
 
 

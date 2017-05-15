@@ -3,10 +3,9 @@ angular
   .factory('Level', Level);
 
 Level.$inject = [
-  '$resource'
+  '$resource',
+  'API'
 ];
-function Level(
-  $resource
-) {
-  return $resource('http://localhost:4000/api/levels/:id', { id: '@_id' });
+function Level($resource, API) {
+  return $resource(`${API}/levels/:id`, { id: '@_id'});
 }

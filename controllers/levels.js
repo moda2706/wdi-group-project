@@ -9,7 +9,9 @@ function levelsIndex(req, res, next) {
   })
   .catch(next);
 }
+
 function levelsShow(req, res, next) {
+  console.log(req.params.id);
   Level
   .findById(req.params.id)
   .exec()
@@ -19,6 +21,8 @@ function levelsShow(req, res, next) {
       error.status = 404;
       return next(error);
     }
+    console.log('HEY LEVEL IS ');
+    console.log(level);
     return res.status(200).json(level);
   })
   .catch(next);
