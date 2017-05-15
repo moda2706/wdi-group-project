@@ -11,14 +11,14 @@
   <link rel="stylesheet" href="/css/style.css">
   <!-- endinject -->
 </head>
-<body>
+<body ng-controller="MainCtrl as main">
   <header>
     <ul ng-controller="LevelIndexCtrl as levelsIndex">
       <li><a ui-sref="home">Home</a></li>
-      <li><a ui-sref="levelsIndex">Levels</a></li>
-    </ul>
+      <li ng-show="main.user"><a ui-sref="levelsIndex">Levels</a></li>
+      <!-- <li><a ui-sref="levelsIndex">Levels</a></li> -->
 
-    <ul ng-controller="MainCtrl as main">
+      
       <li>
         <p class="navbar-text">Welcome, {{ main.user.username }}</p>
       </li>

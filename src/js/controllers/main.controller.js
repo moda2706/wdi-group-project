@@ -6,6 +6,8 @@ MainCtrl.$inject = ['$rootScope', 'CurrentUserService', '$state'];
 function MainCtrl($rootScope, CurrentUserService, $state) {
   const vm = this;
 
+  vm.isAuthenticated = CurrentUserService.isAuthenticated;
+
   CurrentUserService.getUser();
 
   $rootScope.$on('loggedIn', () => {
