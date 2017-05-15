@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>QWERTY</title>
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
   <base href="/">
   <!-- inject:js -->
   <!-- endinject -->
@@ -10,29 +11,44 @@
   <!-- endinject -->
 </head>
 <body ng-controller="MainCtrl as main">
-  <header>
-    <ul ng-controller="LevelIndexCtrl as levelsIndex">
-      <li><a ui-sref="home">Home</a></li>
-      <li ng-show="main.user"><a ui-sref="levelsIndex">Levels</a></li>
-      <!-- <li><a ui-sref="levelsIndex">Levels</a></li> -->
+  <header ng-controller="LevelIndexCtrl as levelsIndex">
+    <nav class="db dt-l w-100 border-box pa3 ph5-l">
+  <a class="db dtc-l v-mid mid-gray link dim w-100 w-25-l tc tl-l mb2 mb0-l" href="#" title="Home">
+    <img ng-src="/images/QWERTY.png" class="dib w10 h3" alt="Qwerty App" ui-sref="home">
+  </a>
+  <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+    <!-- <a class="link dim dark-gray f6 f5-l dib mr3 mr4-l" href="#" title="Home">Home</a> -->
 
-      
-      <li>
-        <p class="navbar-text">Welcome, {{ main.user.username }}</p>
-      </li>
-      <li ng-hide="main.user">
+    <a class="link dim dark-gray f6 f5-l dib mr3 mr4-l" ng-show="main.user" title="How it Works" ui-sref="usersIndex">Users</a>
+
+    <a class="link dim dark-gray f6 f5-l dib mr3 mr4-l" ng-show="main.user" title="levels" ui-sref="levelsIndex">Levels</a>
+
+    <a class="link dim dark-gray f6 f4-m f4-l dib mr3 mr4-l" ng-show="main.user" title="Press"><p>Hi {{ main.user.username }}!</p></a>
+
+    <a class="link dim dark-gray f6 f4-m f3-l dib" ng-hide="main.user"   ui-sref="login" title="Login">Login &#9776;</a>
+
+    <a class="link dim dark-gray f6 f4-m f4-l dib" ng-show="main.user"   ng-click="main.logout()" title="Logout">Logout</a>
+  </div>
+</nav>
+      <!-- <li><a ui-sref="home">Home</a></li> -->
+      <!-- <li ng-show="main.user"><a ui-sref="levelsIndex">Levels</a></li> -->
+      <!-- <li><a ui-sref="levelsIndex">Levels</a></li> -->
+      <!-- <li ng-show="main.user">
+        <p>Welcome, {{ main.user.username }}</p>
+      </li> -->
+      <!-- <li ng-hide="main.user">
         <a ui-sref="register">Register</a>
       </li>
       <li ng-hide="main.user">
         <a ui-sref="login">Login</a>
-      </li>
-      <li ng-show="main.user">
+      </li> -->
+      <!-- <li ng-show="main.user">
         <a ui-sref="usersIndex">Users</a>
-      </li>
-      <li ng-show="main.user">
+      </li> -->
+      <!-- <li ng-show="main.user">
         <a ng-click="main.logout()">Logout</a>
       </li>
-    </ul>
+    </ul> -->
   </header>
   <div class="container">
     <main ui-view></main>
