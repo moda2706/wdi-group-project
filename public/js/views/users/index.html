@@ -1,13 +1,15 @@
 <div class="skewed-bgR"></div>
-<h1>Users</h1>
-<div class="media" ng-repeat="user in usersIndex.users">
-  <div class="media-left">
-    <a ui-sref="#">
-      <img class="media-object" ng-src="{{ user.image }}">
-    </a>
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading">{{ user.username }}</h4>
-    <p>{{ user.email }}</p>
+<div class="mw100 center ph5-ns">
+  <h1>Users</h1>
+  <div class="media" ng-repeat="user in usersIndex.users">
+    <div class="media-left">
+      <a ui-sref="#">
+        <img class="media-object" ng-src="{{ user.image }}">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{ user.username }}</h4>
+      <p>{{ user.email }}</p>
+    </div>
   </div>
 </div>
