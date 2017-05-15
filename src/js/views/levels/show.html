@@ -11,11 +11,11 @@
   </div>
 </div> -->
 
-<h1> Level: {{ levelsShow.level.index }} </h1>
-<h3> Seconds left: {{ levelsShow.level.time }} </h3>
-<h3> Score: {{ levelsShow.level.score }} </h3>
-<p id="textSource" ng-model="textSource"> {{ levelsShow.level.content }} </p>
-<textarea autofocus name="comment" form="usrform" ng-model="textInput" ng-change="output()">Enter text here...</textarea>
+<h1 class="black"> Level: {{ levelsShow.level.index }} </h1>
+<h3 class="black"> Seconds left: {{ levelsShow.level.time }} </h3>
+<h3 class="black"> Score: {{ levelsShow.level.score }} </h3>
+<p class="black" id="textSource" ng-model="textSource"> {{ levelsShow.level.content }} </p>
+<textarea id="textInput" autofocus name="comment" form="usrform" ng-model="textInput" ng-change="output()">Enter text here...</textarea>
 
 
 <!-- <ul>

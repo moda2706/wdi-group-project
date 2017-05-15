@@ -18,7 +18,10 @@ function ShowIndexCtrl(Level, $stateParams, $scope) {
     console.log('hi');
   });
 
+
+
   $scope.output = function() {
+
 
     const charIndex = $scope.textInput.length;
     const originalText = vm.level.content.substring(0,charIndex);
@@ -26,13 +29,23 @@ function ShowIndexCtrl(Level, $stateParams, $scope) {
 
     console.log(inputText);
 
-    // Check for win condition
-
+    // Checking code for mistakes
     if (originalText === inputText) {
       console.log('Correct');
-      $scope.textInput.color = 'green';
+      // So far the input text is correct. Check for win condition:
+      $scope.$textInput = $('#textInput').css({
+        color: 'green'
+      });
+
+      if(inputText.length === vm.level.content.length) {
+        // User wins!
+        console.log('Win!');
+      }
     } else {
       console.log('Incorrect');
+      $scope.$textInput = $('#textInput').css({
+        color: 'red'
+      });
     }
   };
 
