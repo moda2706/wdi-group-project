@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for wdi-group-project/controllers/levels.js</title>
+    <title>Code coverage report for wdi-group-project/controllers/authentications.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -16,18 +16,18 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">all files</a> / <a href="index.html">wdi-group-project/controllers/</a> levels.js
+      <a href="../../index.html">all files</a> / <a href="index.html">wdi-group-project/controllers/</a> authentications.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">33.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/12</span>
+        <span class='fraction'>6/18</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>0/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">37.5% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/12</span>
+        <span class='fraction'>6/16</span>
       </div>
     </div>
   </div>
@@ -74,67 +74,91 @@
 29
 30
 31
-32</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+32
+33
+34
+35
+36
+37
+38
+39
+40</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const Level = require('../models/level');
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const jwt      = require('jsonwebtoken');
+const env      = require('../config/env');
+const User     = require('../models/user');
 &nbsp;
-<span class="fstat-no" title="function not covered" >function levelsIndex(req, res, next) {</span>
-<span class="cstat-no" title="statement not covered" >  Level</span>
-  .find()
-  .exec()
-  .then(levels =&gt; {
-<span class="cstat-no" title="statement not covered" >    return res.status(200).json(levels);</span>
-  })
-  .catch(next);
+<span class="fstat-no" title="function not covered" >function authenticationsRegister(req, res){</span>
+<span class="cstat-no" title="statement not covered" >  User.create(req.body.user, (err, user) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (err) <span class="cstat-no" title="statement not covered" >return res.status(500).json({ message: 'Something went wrong.' });</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    const token = jwt.sign(user._id, env.secret, { expiresIn: 60*60*24 });</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return res.status(201).json({</span>
+      message: `Welcome ${user.username}!`,
+      user,
+      token
+    });
+  });
 }
-<span class="fstat-no" title="function not covered" >function levelsShow(req, res, next) {</span>
-<span class="cstat-no" title="statement not covered" >  Level</span>
-  .findById(req.params.id)
-  .exec()
-  .then(level =&gt; {
-<span class="cstat-no" title="statement not covered" >    if (!level) {</span>
-<span class="cstat-no" title="statement not covered" >      const error = new Error('No level was found');</span>
-<span class="cstat-no" title="statement not covered" >      error.status = 404;</span>
-<span class="cstat-no" title="statement not covered" >      return next(error);</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >function authenticationsLogin(req, res){</span>
+<span class="cstat-no" title="statement not covered" >  User.findOne({ email: req.body.email }, (err, user) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (err) <span class="cstat-no" title="statement not covered" >return res.status(500).json({ message: 'Something went wrong.' });</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!user || !user.validatePassword(req.body.password)) {</span>
+<span class="cstat-no" title="statement not covered" >      return res.status(401).json({ message: 'Unauthorized.' });</span>
     }
-<span class="cstat-no" title="statement not covered" >    return res.status(200).json(level);</span>
-  })
-  .catch(next);
-}
 &nbsp;
+<span class="cstat-no" title="statement not covered" >    const token = jwt.sign(user._id, env.secret, { expiresIn: 60*60*24 });</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return res.status(200).json({</span>
+      message: 'Welcome back.',
+      user,
+      token
+    });
+  });
+}
 &nbsp;
 module.exports = {
-  index: levelsIndex,
-  show: levelsShow
+  register: authenticationsRegister,
+  login: authenticationsLogin
 };
 &nbsp;</pre></td></tr>
 </table></pre>

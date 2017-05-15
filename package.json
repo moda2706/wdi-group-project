@@ -1,7 +1,7 @@
 {
   "name": "angular-gulp-setup",
   "version": "1.0.0",
-  "description": "A example stack with gulp and angular",
+  "description": "Group Project",
   "main": "index.js",
   "scripts": {
     "postinstall": "bower install && gulp deploy",
@@ -58,6 +58,7 @@
     "express-jwt": "^5.3.0",
     "jsonwebtoken": "^7.4.0",
     "mongoose": "^4.9.9",
+    "morgan": "^1.8.1",
     "validator": "^7.0.0"
   },
   "devDependencies": {
