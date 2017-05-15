@@ -1,10 +1,12 @@
 <div class="skewed-bg"></div>
-<h1>Levels</h1>
-<article ng-repeat="level in levelIndex.all | orderBy:'index'" index="$index" class=" mh2 dib mw5  bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
-  <div class="tc">
-    <img src="https://www.11plus.co.uk/images/post-images/How_to_prepare/word%20head%20english%20v3.jpg" class="br-100 h3 w3 dib">
-    <h1 class="f4">English</h1>
-    <hr class="mw3 bb bw1 b--black-10">
-  </div>
-  <p class="lh-copy measure tc f6 black-70" ui-sref="levelsShow({ id: level._id })">Level {{ level.index }}</p>
-</article>
+<div class="fl w-100 mh5">
+  <h1>Levels</h1>
+  <article ng-repeat="level in levelIndex.all | orderBy:'index'" index="$index" class=" mh2 dib mw5  bg-white br3 pa3 pa4-ns mv3 ba b--black-10" ui-sref="levelsShow({ id: level._id })">
+    <div class="tc">
+      <img src="https://www.11plus.co.uk/images/post-images/How_to_prepare/word%20head%20english%20v3.jpg" class="br-100 h3 w3 dib">
+      <h1 class="f4">English</h1>
+      <hr class="mw3 bb bw1 b--black-10">
+    </div>
+    <p class="lh-copy measure tc f6 black-70">Level {{ level.index }}</p>
+  </article>
+</div>
