@@ -41,6 +41,14 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope) {
     // Wrapping original text into spans and setting it back to the DOM
     $scope.$textSource = $('#textSource').html(splitIntoSpans(vm.level.content));
     $scope.$textSource.find('span').eq(0).addClass('next');
+
+    // $scope.$textInput.focus();
+    //
+    // $scope.$textInput.onblur = function () {
+    //   setTimeout(function () {
+    //     $scope.$textInput.focus();
+    //   });
+    // };
   });
 
   // Function which wraps each char into a span
