@@ -2,7 +2,23 @@
 
 textarea {
   width: 100%;
+  opacity: 0;
 }
+// spans
+.correct {
+  color: green;
+  background-color: #baffc4;
+}
+
+.wrong {
+  color: red;
+  background-color: #ffaba6;
+}
+
+.next {
+  background-color: #b4e3ff;
+}
+
 a,article{
   cursor: pointer;
 }
