@@ -1,23 +1,25 @@
 <div class="skewed-bg"></div>
-<div class="dt mw6 center pt0 pb5 pv5-m pv6-ns">
-  <div class="db dtc-ns v-mid-ns">
-    <h1>Login</h1>
-    <form ng-submit="login.login()">
-      <div class="form-group">
-        <input class="form-control" type="email" name="email" ng-model="login.user.email" placeholder="Email">
+<div class="ba bw1 mw5 mw7-ns center bg-white pa3 pb7 mt4 ph5-ns">
+    <h1 class="black">Login</h1>
+  <div class="login">
+    <form ng-submit="login.login()" class="w-50 cf fl br ">
+      <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
+        <legend class="f4 fw6 ph0 mh0"></legend>
+      <div class="mt3">
+        <label class="db fw6 lh-copy f6" for="email-address">Email</label>
+        <input class="form-control pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80" type="email" name="email" ng-model="login.user.email" placeholder="Username">
       </div>
-      <div class="form-group">
-        <input class="form-control" type="password" name="password" ng-model="login.user.password" placeholder="Password">
+      <div class="form-group mv3">
+        <label class="db fw6 lh-copy f6" for="password">Password</label>
+        <input class="form-control pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80" type="password" name="password" ng-model="login.user.password" placeholder="Password">
       </div>
-      <input class="btn btn-primary" type="submit" value="Login">
+      <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Submit">
     </form>
   </div>
-  <div class="db dtc-ns v-mid ph2 pr0-ns pl3-ns">
-    <form>
-      <p class="lh-copy">
-        If you don’t already have an account click the button below to create your account.
-      </p>
-      <input class="btn btn-primary" ui-sref="register" type="submit" value="Register">
-    </form>
-  </div>
+<div class="">
+<p class="black">If you don't already have an account click the button below to create your account</p>
 </div>
+
+
+
+  </div>
