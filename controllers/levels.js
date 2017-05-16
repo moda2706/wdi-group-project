@@ -21,8 +21,7 @@ function levelsShow(req, res, next) {
       error.status = 404;
       return next(error);
     }
-    console.log('HEY LEVEL IS ');
-    console.log(level);
+  
     return res.status(200).json(level);
   })
   .catch(next);

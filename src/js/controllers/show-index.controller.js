@@ -15,9 +15,9 @@ function KeyPressDirective($document, $rootScope) {
   };
 }
 
-ShowIndexCtrl.$inject = ['Level', '$stateParams', '$scope', '$rootScope'];
+ShowIndexCtrl.$inject = ['Level', '$stateParams', '$scope', '$rootScope', 'TokenService', 'User'];
 
-function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope) {
+function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, TokenService, User) {
 
   const vm = this;
   vm.text = 'test test test';
@@ -81,6 +81,8 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope) {
       if(inputText === vm.level.content) {
         // User wins!
         alert('You won!');
+        // Saving data
+        userCompletedLevel();
       }
 
     } else {
@@ -113,8 +115,25 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope) {
       allSpans.eq(0).addClass('next');
     }
 
-  };
 
+
+
+  };
+  function userCompletedLevel() {
+    console.log('User Completed Level');
+
+    const decoded = TokenService.decodeToken();
+    if (decoded) {
+      User
+      .get({ id: decoded.id }).$promise
+      .then(data => {
+        console.log(`User with id ${data._id} completed the level.`);
+
+        // self.currentUser = data;
+        // $rootScope.$broadcast('loggedIn');
+      });
+    }
+  }
   // $scope.key = 'none';
 
   // Key Listener 0

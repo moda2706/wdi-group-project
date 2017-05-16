@@ -11,7 +11,7 @@ Level.collection.drop();
 Level
 .create([
   {
-    content: `I am Harambe, and this is my zoo enclosure. I work here with my zoo keeper and my friend, cecil the lion. Everything in here has a story and a price. One thing I have learned after 21 years - you never know WHO is gonna come over that fence.`,
+    content: `I am Harambe.`,
     index: 1,
     seconds: 60
   },
