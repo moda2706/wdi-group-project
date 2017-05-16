@@ -20,7 +20,8 @@ router.route('/users/:id')
 router.route('/levels')
   .get(levels.index);
 router.route('/levels/:id')
-  .get(levels.show);
+  .get(levels.show)
+  .put(levels.update);
 
 
 module.exports = router;
