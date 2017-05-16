@@ -16,8 +16,19 @@ textarea {
 }
 
 .next {
-  background-color: #b4e3ff;
+  border-bottom: 2px solid #3c96d2;
+  animation: blink 0.25s steps(2) infinite alternate both;
 }
+
+@keyframes blink {
+  from {
+    border-color: #3c96d2;
+  }
+  to {
+    border-color: transparent;
+  }
+}
+
 
 a,article{
   cursor: pointer;
