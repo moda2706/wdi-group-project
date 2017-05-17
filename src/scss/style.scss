@@ -17,6 +17,10 @@ textarea {
   background-color: #ffaba6;
 }
 
+.cell:hover {
+  background-color: lightGrey;
+}
+
 .next {
   border-bottom: 2px solid #3c96d2;
   animation: blink 0.25s steps(2) infinite alternate both;

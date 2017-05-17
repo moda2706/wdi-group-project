@@ -9,6 +9,16 @@ function UsersIndexCtrl(User){
   const vm = this;
   vm.users = User.query();
 
+
+
+  console.log('Users: ');
+  console.log(vm.users);
+
+  function selectUser() {
+    console.log(this);
+  }
+
+  vm.selectUser = selectUser;
 }
 
 

@@ -25,7 +25,7 @@
               Most played: <span class="fr mr4">English</span>
             </div>
             <div class="mt2">
-              Highest level score:<span class="fr mr4">450pts</span>
+              Highest level score:<span class="fr mr4">{{ main.user.userScore  }} pts</span>
             </div>
           </div>
         </div>
@@ -36,10 +36,10 @@
         <!-- <h1 class="f4 bg-near-black white mv0 pv2 ph3 tc">Leader Board</h1> -->
         <div class="bg-white ph2 br4 br--bottom ba b--light-blue">
           <div class="pb3"></div>
-          <div class="media" ng-repeat="user in usersIndex.users| orderBy:'-userScore'" index="$userScore">
-            <div class="media-left ph3 pt1">
+          <div class="media" ng-repeat="user in usersIndex.users | orderBy:'-userScore' track by $index" index="$userScore">
+            <div ng-click="usersIndex.selectUser()" ng-model="cell" class="media-left ph3 pt1">
               <a ui-sref="mv1">
-                <h4 class="dib ml4 mr2">{{ 1 }}</h4>
+                <h4 class="dib ml4 mr2">{{ $index + 1 }}</h4>
                 <h4 class="dib ml4 mb3">{{ user.username }}</h4>
                 <h5  class="dib fr ml5 ">{{ user.userScore }}pts</h5>
                 <div class="imageC fl mr4 mb2">
