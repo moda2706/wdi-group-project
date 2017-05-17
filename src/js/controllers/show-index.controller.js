@@ -90,11 +90,11 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, TokenService, Us
     const decoded = TokenService.decodeToken();
 
     if (decoded) {
+
       User
       .get({ id: decoded.id }).$promise
       .then(data => {
         console.log(`User with id ${data._id} completed the level.`);
-
         console.log(`Level id is ${vm.level._id}`);
 
         // Data to update Level Schema
@@ -109,12 +109,23 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, TokenService, Us
         .get({ id: vm.level._id})
         .$promise
         .then(level => {
+
+          console.log('We got the level');
+          console.log(level);
+
           vm.level = level;
           vm.level.plays.push(progress);
+
+          console.log(`Level now: `);
+          console.log(vm.level);
+
+          Level.update({ id: vm.level._id }, vm.level);
+
         });
 
-        Level.update({ id: vm.level._id}, vm.level);
-        console.log(`Progress added is ${progress}`);
+        console.log(`Progress added: `);
+        console.log(progress);
+
       });
     }
   }

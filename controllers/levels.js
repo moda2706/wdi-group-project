@@ -29,12 +29,19 @@ function levelsShow(req, res, next) {
 
 function levelsUpdate(req, res) {
 
-  Level.findByIdAndUpdate(req.params.id, { new: true },  (err, level) => {
+  Level.findByIdAndUpdate(req.params.id, req.body, { new: true },  (err, level) => {
+    // console.log(req.body);
     if (err) return res.status(500).json({ message: 'Something went wrong.' });
     if (!level) return res.status(404).json({ message: 'Level not found.' });
+    level.plays.splice(1, level.plays.length);
+    level.plays.push(req.body.plays);
+    // level.save();
+    console.log('Level Updated:');
+    console.log(level);
+
     return res.status(200).json(level);
   });
-  
+
 }
 
 module.exports = {
