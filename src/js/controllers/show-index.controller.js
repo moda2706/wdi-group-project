@@ -87,8 +87,6 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, TokenService, Us
 
   function userCompletedLevel() {
 
-    console.log('User Completed Level');
-
     const decoded = TokenService.decodeToken();
 
     if (decoded) {
@@ -99,6 +97,14 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, TokenService, Us
 
         console.log(`Level id is ${vm.level._id}`);
 
+        // Data to update Level Schema
+        const progress = {
+          user: data._id,
+          score: 42,
+          wpm: 65,
+          secondsLeft: 12
+        };
+
         Level
         .get({ id: vm.level._id})
         .$promise
@@ -107,16 +113,8 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, TokenService, Us
           vm.level.plays.push(progress);
         });
 
-
         Level.update({ id: vm.level._id}, vm.level);
-
-        const progress = {
-          user: vm.level._id,
-          score: 42,
-          wpm: 65,
-          secondsLeft: 12
-        };
-
+        console.log(`Progress added is ${progress}`);
       });
     }
   }
