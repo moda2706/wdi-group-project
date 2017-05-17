@@ -14,9 +14,9 @@ function KeyPressDirective($document, $rootScope) {
   };
 }
 
-ShowIndexCtrl.$inject = ['Level', '$stateParams', '$scope', '$rootScope', 'TokenService', 'User'];
+ShowIndexCtrl.$inject = ['Level', '$stateParams', '$scope', '$rootScope'];
 
-function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, TokenService, User) {
+function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope) {
 
   const vm = this;
   vm.level = Level.get($stateParams);
@@ -87,47 +87,18 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, TokenService, Us
 
   function userCompletedLevel() {
 
-    const decoded = TokenService.decodeToken();
+    const play = {
+      score: 1,
+      wpm: 1,
+      secondsLeft: 1
+    };
 
-    if (decoded) {
-
-      User
-      .get({ id: decoded.id }).$promise
-      .then(data => {
-        console.log(`User with id ${data._id} completed the level.`);
-        console.log(`Level id is ${vm.level._id}`);
-
-        // Data to update Level Schema
-        const progress = {
-          user: data._id,
-          score: 42,
-          wpm: 65,
-          secondsLeft: 12
-        };
-
-        Level
-        .get({ id: vm.level._id})
-        .$promise
-        .then(level => {
-
-          console.log('We got the level');
-          console.log(level);
-
-          vm.level = level;
-          vm.level.plays.push(progress);
-
-          console.log(`Level now: `);
-          console.log(vm.level);
-
-          Level.update({ id: vm.level._id }, vm.level);
-
-        });
-
-        console.log(`Progress added: `);
-        console.log(progress);
-
-      });
-    }
+    Level
+    .update({ id: vm.level._id }, play)
+    .$promise
+    .then(level => {
+      console.log(level, '*****************************');
+    });
   }
   // $scope.key = 'none';
 
