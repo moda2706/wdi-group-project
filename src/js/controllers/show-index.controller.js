@@ -14,9 +14,9 @@ function KeyPressDirective($document, $rootScope) {
   };
 }
 
-ShowIndexCtrl.$inject = ['Level', '$stateParams', '$scope', '$rootScope'];
+ShowIndexCtrl.$inject = ['Level', '$stateParams', '$scope', '$rootScope', 'User'];
 
-function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope) {
+function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User) {
 
   const vm = this;
   vm.level = Level.get($stateParams);
@@ -52,7 +52,10 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope) {
     const inputText = $scope.textInput;
     const charIndex = inputText.length-1;
     const originalText = vm.level.content.substring(0,$scope.textInput.length);
-
+    const levelScore = inputText.length;
+    vm.score = levelScore;
+    // Updating score
+    $scope.$scoreField = $('#scoreField').html(`Score: ${levelScore}`);
 
     // Checking input for mistakes
     if (originalText[charIndex] === inputText[charIndex]) {
@@ -88,7 +91,7 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope) {
   function userCompletedLevel() {
 
     const play = {
-      score: 1,
+      score: vm.score,
       wpm: 1,
       secondsLeft: 1
     };
@@ -99,6 +102,7 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope) {
     .then(level => {
       console.log(level, '*****************************');
     });
+
   }
   // $scope.key = 'none';
 

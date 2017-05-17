@@ -28,6 +28,7 @@ function levelsShow(req, res, next) {
 }
 
 function levelsUpdate(req, res) {
+
   const play = req.body;
   play.user = req.user._id;
 
@@ -44,6 +45,12 @@ function levelsUpdate(req, res) {
     } else {
       previous.set(play);
     }
+
+    // Update user's score
+    const newScore = req.user.userScore + play.score; 
+    req.user.userScore = newScore;
+    console.log(`User score now is ${req.user.userScore}`);
+    req.user.save();
 
     return level.save();
   })
