@@ -13,8 +13,7 @@ const levelSchema = new mongoose.Schema({
     wpm: Number,
     secondsLeft: Number
   }]
-},{
-  timestamps: true
-});
+}
+);
 
 module.exports = mongoose.model('level', levelSchema);
