@@ -8,6 +8,7 @@ module.exports = {
 const User = require('../models/user');
 
 function usersIndex(req, res) {
+  console.log('Hello from user controller');
   User.find((err, users) => {
     if (err) return res.status(500).json({ message: 'Something went wrong.' });
     return res.status(200).json(users);

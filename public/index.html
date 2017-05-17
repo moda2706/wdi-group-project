@@ -17,14 +17,17 @@
   <body ng-controller="MainCtrl as main">
     <header ng-controller="LevelIndexCtrl as levelsIndex">
       <nav class="db dt-l w-100 border-box pa3 ph5-l">
+
         <a class="db dtc-l v-mid mid-gray link dim w-100 w-25-l tc tl-l mb2 mb0-l" href="#" title="Home">
           <img ng-src="/images/QWERTY.png" class="w10 h3" alt="Qwerty App" ui-sref="home">
         </a>
         <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
 
-          <a class="white link dim dark-gray f6 f5-l dib mr3 mr4-l" ng-show="main.user" title="How it Works" ui-sref="usersIndex">Users</a>
+          <a class="white link dim dark-gray f6 f5-l dib mr3 mr4-l" ng-show="main.user" title="Users" ui-sref="usersIndex">Users</a>
 
           <a class="white link dim dark-gray f6 f5-l dib mr3 mr4-l" ng-show="main.user" title="levels" ui-sref="levelsIndex">Levels</a>
+
+          <a class="white link dim dark-gray f6 f5-l dib mr3 mr4-l" ng-hide="main.user" title="Register" ui-sref="register">Register</a>
 
           <a class="white link dim dark-gray f6 f4-m f3-l dib" ng-hide="main.user"   ui-sref="login" title="Login">Login &#9776;</a>
 

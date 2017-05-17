@@ -7,7 +7,6 @@ function KeyPressDirective($document, $rootScope) {
   return {
     restrict: 'A',
     link: function () {
-      console.log('linked');
       $document.bind('keypress', function (e) {
         $rootScope.$broadcast('keypress', e, String.fromCharCode(e.which));
       });
@@ -15,15 +14,12 @@ function KeyPressDirective($document, $rootScope) {
   };
 }
 
-ShowIndexCtrl.$inject = ['Level', '$stateParams', '$scope', '$rootScope'];
+ShowIndexCtrl.$inject = ['Level', '$stateParams', '$scope', '$rootScope', 'TokenService', 'User'];
 
-function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope) {
+function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, TokenService, User) {
 
   const vm = this;
-  vm.text = 'test test test';
   vm.level = Level.get($stateParams);
-  console.log($stateParams);
-
 
   // Preventing TAB
   $(document).keydown(function(objEvent) {
@@ -35,9 +31,7 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope) {
   // Getting our Level Data
   Level.get({ id: $stateParams.id}).$promise.then(data => {
     vm.level = data;
-    console.log('Level is ');
-    console.log(vm.level.content);
-    console.log('hi');
+
     // Wrapping original text into spans and setting it back to the DOM
     $scope.$textSource = $('#textSource').html(splitIntoSpans(vm.level.content));
     $scope.$textSource.find('span').eq(0).addClass('next');
@@ -51,58 +45,34 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope) {
     // };
   });
 
-  // Function which wraps each char into a span
-  function splitIntoSpans(text) {
-    return text.split('').map(function(n) {
-      return '<span>' + n + '</span>';
-    }).join('');
-  }
-
   // function which runs each time user enters a character
   $scope.output = function() {
 
+    var spanClass;
     const inputText = $scope.textInput;
     const charIndex = inputText.length-1;
     const originalText = vm.level.content.substring(0,$scope.textInput.length);
 
-    console.log(inputText);
-    var spanClass;
 
     // Checking input for mistakes
     if (originalText[charIndex] === inputText[charIndex]) {
-      console.log('Correct');
       // So far the input text is correct. Check for win condition:
-      $scope.$textInput = $('#textInput').css({
-        color: 'green'
-      });
-
       spanClass = 'correct';
 
       if(inputText === vm.level.content) {
         // User wins!
         alert('You won!');
+        // Saving data
+        userCompletedLevel();
       }
 
     } else {
-
-      console.log('Incorrect');
-      console.log(`Original text is ${originalText} and input text is ${inputText}`);
-      $scope.$textInput = $('#textInput').css({
-        color: 'red'
-      });
-
       spanClass = 'wrong';
     }
 
     const allSpans = $scope.$textSource.find('span');
     const currentSpan = allSpans.eq([charIndex]);
 
-    // Removing all classes from next spans
-    // for (let i = vm.level.content.length-1; i > charIndex; i-- ) {
-    //   console.log('Entered the loop');
-    //   const nextSpan = allSpans.eq(i);
-    //   nextSpan.removeClass();
-    // }
     currentSpan.removeClass();
     if (inputText.length !== 0) {
       currentSpan.addClass(spanClass);
@@ -115,6 +85,39 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope) {
 
   };
 
+  function userCompletedLevel() {
+
+    const decoded = TokenService.decodeToken();
+
+    if (decoded) {
+      User
+      .get({ id: decoded.id }).$promise
+      .then(data => {
+        console.log(`User with id ${data._id} completed the level.`);
+
+        console.log(`Level id is ${vm.level._id}`);
+
+        // Data to update Level Schema
+        const progress = {
+          user: data._id,
+          score: 42,
+          wpm: 65,
+          secondsLeft: 12
+        };
+
+        Level
+        .get({ id: vm.level._id})
+        .$promise
+        .then(level => {
+          vm.level = level;
+          vm.level.plays.push(progress);
+        });
+
+        Level.update({ id: vm.level._id}, vm.level);
+        console.log(`Progress added is ${progress}`);
+      });
+    }
+  }
   // $scope.key = 'none';
 
   // Key Listener 0
@@ -149,4 +152,11 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope) {
   //   });
   // }
 
+}
+
+// Function which wraps each char into a span
+function splitIntoSpans(text) {
+  return text.split('').map(function(n) {
+    return '<span>' + n + '</span>';
+  }).join('');
 }
