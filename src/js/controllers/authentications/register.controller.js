@@ -14,7 +14,7 @@ function RegisterCtrl(User, CurrentUserService, $state){
       .then(() => {
         console.log('Phase: 2');
         CurrentUserService.getUser();
-        $state.go('login');
+        $state.go('usersIndex');
         console.log(vm.user);
       }, err => {
         console.log(err);

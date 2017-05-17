@@ -4,10 +4,10 @@ const validator = require('validator');
 
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true, trim: true, required: true },
-  image: { type: String, trim: true },
+  image: { type: String, trim: true, default: 'https://pbs.twimg.com/profile_images/644222149092331520/SdBxbA4X.jpg' },
   email: { type: String, unique: true, trim: true, required: true },
-  passwordHash: { type: String, required: true },
-  userScore: { type: Number }
+  userScore: { type: Number, default: 0},
+  passwordHash: { type: String, required: true }
 });
 
 userSchema

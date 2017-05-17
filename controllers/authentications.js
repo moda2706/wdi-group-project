@@ -8,11 +8,13 @@ const jwt      = require('jsonwebtoken');
 const env      = require('../config/env');
 
 function authenticationsRegister(req, res){
+
   User.create(req.body, (err, user) => {
     if (err) return res.status(500).json({ message: 'Something went wrong.' });
 
+    console.log('req body is ');
+    console.log(req.body);
     const token = jwt.sign({ id: user.id, username: user.username }, env.secret, { expiresIn: 60*60*24 });
-
     return res.status(201).json({
       message: `Welcome ${user.username}!`,
       user,
@@ -37,3 +39,17 @@ function authenticationsLogin(req, res){
     });
   });
 }
+
+
+// const decoded = TokenService.decodeToken();
+//
+//     if (decoded) {
+//       User
+//       .get({ id: decoded.id }).$promise
+//       .then(data => {
+//
+//         // Data is the user data
+//         console.log(`User with id ${data._id} completed the level.`);
+//
+//   });
+// }
