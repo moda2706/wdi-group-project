@@ -18,22 +18,22 @@ Level
     seconds: 60
   },
   {
-    content: `I am Harambe, and this is my zoo enclosure. I work here with my zoo keeper and my friend, cecil the lion. Everything in here has a story and a price. One thing I have learned after 21 years - you never know WHO is gonna come over that fence.`,
+    content: `I am Harambe`,
     index: 2,
     seconds: 50
   },
   {
-    content: `I am Harambe, and this is my zoo enclosure. I work here with my zoo keeper and my friend, cecil the lion. Everything in here has a story and a price. One thing I have learned after 21 years - you never know WHO is gonna come over that fence.`,
+    content: `I am Harambe`,
     index: 3,
     seconds: 40
   },
   {
-    content: `I am Harambe, and this is my zoo enclosure. I work here with my zoo keeper and my friend, cecil the lion. Everything in here has a story and a price. One thing I have learned after 21 years - you never know WHO is gonna come over that fence.`,
+    content: `I am Harambe`,
     index: 4,
     seconds: 30
   },
   {
-    content: `I am Harambe, and this is my zoo enclosure. I work here with my zoo keeper and my friend, cecil the lion. Everything in here has a story and a price. One thing I have learned after 21 years - you never know WHO is gonna come over that fence.`,
+    content: `I am Harambe`,
     index: 5,
     seconds: 20
   }
