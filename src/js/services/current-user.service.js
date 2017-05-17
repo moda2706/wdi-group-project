@@ -4,9 +4,8 @@ angular
 
 CurrentUserService.$inject = ['TokenService', '$rootScope', 'User'];
 function CurrentUserService(TokenService, $rootScope, User) {
-
   const self = this;
-  console.log('Hey User!');
+
   self.getUser = () => {
     const decoded = TokenService.decodeToken();
     if (decoded) {

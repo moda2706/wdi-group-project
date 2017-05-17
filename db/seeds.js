@@ -5,8 +5,10 @@ const env          = require('../config/env');
 mongoose.connect(env.db);
 
 const Level = require('../models/level');
+const Users = require('../models/user');
 
 Level.collection.drop();
+Users.collection.drop();
 
 Level
 .create([
