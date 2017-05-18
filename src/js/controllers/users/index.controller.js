@@ -29,6 +29,13 @@ function UsersIndexCtrl(User, $scope) {
       $scope.$profileProgress = $('#profileProgress').html(`<strong>${data.currentLevel} / 15</strong>`);
       $scope.$profileImage = $('#profileImage').attr('src',data.image);
 
+      var largestScore;
+      if (data.levelsScore.length !== 0) largestScore = Math.max.apply(Math, data.levelsScore);
+      else largestScore = 0;
+
+      largestScore = largestScore.toFixed(0);
+      $scope.$profileLargestScore = $('#profileLargestScore').html(`<strong>${largestScore} pts</strong>`);
+
     });
 
   }
