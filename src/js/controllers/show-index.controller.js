@@ -16,6 +16,9 @@ function KeyPressDirective($document, $rootScope) {
 
 ShowIndexCtrl.$inject = ['Level', '$stateParams', '$scope', '$rootScope', 'User', 'CurrentUserService', '$state'];
 
+let wasTimerStarted = false;
+let timeLeft = 0, timerID;
+
 function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUserService, $state) {
 
   const vm = this;
@@ -48,6 +51,12 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
   // function which runs each time user enters a character
   $scope.output = function() {
 
+    if(!wasTimerStarted) {
+      wasTimerStarted = true;
+      timeLeft = vm.level.seconds;
+      startTimer();
+    }
+
     var spanClass;
     const inputText = $scope.textInput;
     const charIndex = inputText.length-1;
@@ -63,9 +72,9 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
       spanClass = 'correct';
 
       if(inputText === vm.level.content) {
+
         // User wins!
         alert('You won!');
-        // Saving data
         userCompletedLevel();
       }
 
@@ -90,6 +99,8 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
 
   function userCompletedLevel() {
 
+    clearInterval(timerID);
+
     const play = {
       score: vm.score,
       wpm: 1,
@@ -107,6 +118,26 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
     CurrentUserService.getUser();
 
   }
+
+  function startTimer() {
+
+    timerID = setInterval(function() {
+
+      // Find the distance between now an the count down date
+      timeLeft = timeLeft - 1;
+      $scope.$secondsField = $('#secondsField').html(`Seconds: ${timeLeft}`);
+      console.log(timeLeft);
+      // If the count down is finished, write some text
+      if (timeLeft === -1) {
+
+        $scope.$secondsField = $('#secondsField').html(`Seconds: 0`);
+        clearInterval(timerID);
+        alert('No more time left!');
+      }
+    }, 1000);
+
+  }
+
   // $scope.key = 'none';
 
   // Key Listener 0
