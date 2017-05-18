@@ -3,5 +3,6 @@ angular
   .module('qwertyApp', [
     'ui.router',
     'ngResource',
-    'angular-jwt'
+    'angular-jwt',
+    'ngMessages'
   ]);
