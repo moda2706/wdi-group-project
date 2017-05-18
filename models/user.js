@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
   image: { type: String, trim: true, default: 'images/cat.png' },
   email: { type: String, unique: true, trim: true, required: true },
   userScore: { type: Number, default: 0},
+  currentLevel: { type: Number, default: 1},
   passwordHash: { type: String, required: true }
 });
 

@@ -41,16 +41,28 @@ function levelsUpdate(req, res) {
     const previous = level.plays.find(p => p.user == req.user.id);
 
     if (!previous) {
+
       level.plays.push(play);
+
+      // Adding new score to user
+      const newScore = req.user.userScore + play.score;
+      req.user.userScore = newScore;
+      console.log(`User score now is ${req.user.userScore}`);
+
+      // Adding a new level to user
+      const newLevel = req.user.currentLevel + 1;
+      req.user.currentLevel = newLevel;
+      console.log(`User score now is ${req.user.currentLevel}`);
+
+      // Saving the user
+      req.user.save();
+
     } else {
       previous.set(play);
     }
 
     // Update user's score
-    const newScore = req.user.userScore + play.score; 
-    req.user.userScore = newScore;
-    console.log(`User score now is ${req.user.userScore}`);
-    req.user.save();
+
 
     return level.save();
   })

@@ -2,7 +2,7 @@
 <!-- <div class="w-100 ml5 "> -->
 <div class="mw100 center ph5-ns">
   <h1 class="white-50">Levels</h1>
-  <article ng-repeat="level in levelIndex.all | orderBy:'index'" index="$index" class=" mh2 dib mw5  bg-white br3 pa3 pa4-ns mv3 ba b--black-10" ui-sref="levelsShow({ id: level._id })">
+  <article ng-repeat="level in levelIndex.all | orderBy:'index' | limitTo:  main.user.currentLevel" index="$index" class=" mh2 dib mw5  bg-white br3 pa3 pa4-ns mv3 ba b--black-10" ui-sref="levelsShow({ id: level._id })">
     <div class="tc">
       <img src="https://www.11plus.co.uk/images/post-images/How_to_prepare/word%20head%20english%20v3.jpg" class="br-100 h3 w3 dib">
       <h1 class="f4">English</h1>
