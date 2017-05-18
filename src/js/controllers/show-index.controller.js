@@ -61,15 +61,18 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
     const inputText = $scope.textInput;
     const charIndex = inputText.length-1;
     const originalText = vm.level.content.substring(0,$scope.textInput.length);
-    globalScore = inputText.length * timeLeft;
+    globalScore = globalScore + (inputText.length * timeLeft)/10;
+
     //vm.score = levelScore;
     // Updating score
-    $scope.$scoreField = $('#scoreField').html(`Score: ${globalScore}`);
+    $scope.$scoreField = $('#scoreField').html(`Score: ${globalScore.toFixed(0)}`);
 
     // Checking input for mistakes
     if (originalText[charIndex] === inputText[charIndex]) {
       // So far the input text is correct. Check for win condition:
       spanClass = 'correct';
+
+
 
       if(inputText === vm.level.content) {
 

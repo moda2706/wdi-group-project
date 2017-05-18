@@ -15,7 +15,7 @@
           <div class="">
             - - - - - - - - - - -
             <div class=" pa1 dib pa3 br-100 bg-black white f3  ba bw2 pumpIt">
-              {{ main.user.userScore }} pts
+              {{ main.user.userScore | number:0 }} pts
             </div>
             - - - - - - - - - - -
           </div>
@@ -25,7 +25,7 @@
               Most played: <span class="fr mr4">English</span>
             </div>
             <div class="mt2">
-              Highest level score:<span class="fr mr4">{{ main.user.userScore  }} pts</span>
+              Highest level score:<span class="fr mr4">{{ main.user.userScore | number:0  }} pts</span>
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@
               <a ui-sref="mv1">
                 <h4 class="dib ml4 mr2">{{ $index + 1 }}</h4>
                 <h4 class="dib ml4 mb3">{{ user.username }}</h4>
-                <h5  class="dib fr ml5 ">{{ user.userScore }}pts</h5>
+                <h5  class="dib fr ml5 ">{{ user.userScore | number:0 }} pts</h5>
                 <div class="imageC fl mr4 mb2">
                   <img class="br-100 h2 ba bw1 b--grey mw2 mh2 userImage" ng-src="{{ user.image }}">
                 </div>
