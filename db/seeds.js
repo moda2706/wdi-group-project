@@ -15,7 +15,7 @@ Level
   {
     name: 'Journey Begins',
     image: 'https://oneinabillionblog.files.wordpress.com/2012/07/journey-road.jpg',
-    content: `I.`,
+    content: `I am Jack the Cat and here my journey begins.`,
     index: 1,
     seconds: 30
   },
@@ -63,7 +63,6 @@ Level
   }
 ])
 .then(levels => {
-  console.log(`${levels.length} levels were created`);
   process.exit();
 })
 .catch(err => {

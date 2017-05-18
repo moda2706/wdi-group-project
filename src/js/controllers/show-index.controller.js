@@ -25,8 +25,7 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
 
   const vm = this;
   vm.level = Level.get($stateParams);
-  console.log('Global Score is ');
-  console.log(globalScore);
+
 
   $scope.$textInput = $('#textInput').focus();
 
@@ -39,7 +38,6 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
 
   $(document).keydown(function(e) {
     if(e.which === 13) {
-      console.log('Enter!');
       e.preventDefault(); // stops its action
       if (isLevelCompleted) $state.go('levelsIndex');
     }
@@ -47,7 +45,6 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
 
   $('body').click(function() {
     // do something here
-    console.log('Body click');
     $scope.$textInput = $('#textInput').focus();
   });
 
@@ -91,9 +88,7 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
       // Adding score only for new correct characters
       if(inputText.length > charactersEntered) {
 
-        console.log(`Input text length is ${inputText.length}`);
         charactersEntered++;
-        console.log(`CharactersEntered is ${charactersEntered}`);
         globalScore = globalScore + (charactersEntered * timeLeft)/50;
         $scope.$scoreField = $('#scoreField').html(`Score: ${globalScore.toFixed(0)}`);
 
@@ -133,8 +128,6 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
 
   function userCompletedLevel() {
 
-    console.log('Level completed!');
-    console.log(globalScore);
     clearInterval(timerID);
 
     const play = {
@@ -147,8 +140,7 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
     Level
     .update({ id: vm.level._id }, play)
     .$promise
-    .then(level => {
-      console.log(level);
+    .then(() => {
       // $state.go('levelsIndex');
     });
 
@@ -158,7 +150,6 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
 
   }
 
-  console.log('TIMELEFT', timeLeft);
 
   function startTimer() {
 
@@ -167,7 +158,6 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
       // Find the distance between now an the count down date
       timeLeft = timeLeft - 1;
       $scope.$secondsField = $('#secondsField').html(`Seconds: ${timeLeft}`);
-      console.log(timeLeft);
 
       // If the count down is finished, write some text
       if (timeLeft === -1) {

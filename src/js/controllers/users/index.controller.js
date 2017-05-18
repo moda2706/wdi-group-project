@@ -10,8 +10,6 @@ function UsersIndexCtrl(User, $scope) {
   vm.users = User.query();
 
 
-  console.log('Users: ');
-  console.log(vm.users);
 
   function selectUser(id) {
     //  console.log(id);
@@ -20,8 +18,6 @@ function UsersIndexCtrl(User, $scope) {
     .get({ id: id }).$promise
     .then(data => {
 
-      console.log('This user data: ');
-      console.log(data);
 
       // Show user data on click:
       $scope.$profileName = $('#profileUsername').html(`${data.username}`);

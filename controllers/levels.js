@@ -11,7 +11,6 @@ function levelsIndex(req, res, next) {
 }
 
 function levelsShow(req, res, next) {
-  console.log(req.params.id);
 
   Level
   .findById(req.params.id)
@@ -53,22 +52,18 @@ function levelsUpdate(req, res) {
       // Adding a new level to user
       const newLevel = req.user.currentLevel + 1;
       req.user.currentLevel = newLevel;
-      console.log(`User level now is ${req.user.currentLevel}`);
 
     } else {
       // Updating the current level stats for the user
-      console.log('Previous score: ');
-      console.log(req.user.levelsScore[play.index-1]);
+
 
       if(play.score > req.user.levelsScore[play.index-1]) {
         // New score is better, update!
-        console.log('New score is better!');
-        console.log(play.score);
+
         req.user.levelsScore.splice(play.index-1, 1, play.score);
         previous.set(play);
       } else {
         // New score is worse, don't update
-        console.log('Worse score, no update');
       }
     }
 
@@ -77,7 +72,6 @@ function levelsUpdate(req, res) {
       scoreSum += req.user.levelsScore[i];
     }
     req.user.userScore = scoreSum;
-    console.log(`User score now is ${req.user.userScore}`);
 
     // Saving the user
     req.user.save();
