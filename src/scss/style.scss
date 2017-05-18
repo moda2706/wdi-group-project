@@ -62,37 +62,37 @@ a,article{
     transform: skew(0deg, 5deg);
     text-align: center;
 
-  .bratva {
-    width: 26em;
-    white-space:nowrap;
-    overflow:hidden;
-    // -webkit-animation: type 5s steps(10, end);
-    animation: type 5s steps(15, end);
-}
+    .bratva {
+      width: 26em;
+      white-space:nowrap;
+      overflow:hidden;
+      // -webkit-animation: type 5s steps(10, end);
+      animation: type 5s steps(15, end);
+    }
 
-@keyframes type{
-    from { width: 0; }
-}
+    @keyframes type{
+      from { width: 0; }
+    }
 
-@-webkit-keyframes type{
-    from { width: 0; }
-}
+    @-webkit-keyframes type{
+      from { width: 0; }
+    }
 
 
 
 
   }
 
-    .title{
-      padding-top: 100px;
-      font-weight: normal;
-    }
+  .title{
+    padding-top: 100px;
+    font-weight: normal;
+  }
 
-    .text{
-      width:60%;
-      margin: 25px auto;
-      color: lighten(#00B285, 55);
-    }
+  .text{
+    width:60%;
+    margin: 25px auto;
+    color: lighten(#00B285, 55);
+  }
 
 }
 
@@ -220,8 +220,8 @@ nav{
   clear: both;
 }
 .userImage{
-min-width: 50px;
-min-height: 50px;
+  min-width: 50px;
+  min-height: 50px;
 }
 
 
@@ -258,4 +258,12 @@ min-height: 50px;
   100% {
     opacity: 1
   }
+}
+
+.clint{
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-image: url('../images/ceHome.png');
+  height: 500px;
 }
