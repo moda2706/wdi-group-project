@@ -1,5 +1,7 @@
 // Import all of your scss files here
-
+userI{
+  text-align: center;
+}
 textarea {
   width: 100%;
   opacity: 0;
@@ -13,6 +15,10 @@ textarea {
 .wrong {
   color: red;
   background-color: #ffaba6;
+}
+
+.cell:hover {
+  background-color: lightGrey;
 }
 
 .next {
@@ -166,4 +172,58 @@ nav{
   animation: 1s ease-out bgAnimL;
   animation: bgAnimL 1.0s forwards;
   -webkit-animation: bgAnimL 1.0s forwards; /* for less modern browsers */
+}
+
+
+
+.pumpIt{
+  animation: heartbeat 3s infinite;
+  display: inline-block;
+  -webkit-animation-name:theBeat;
+
+
+}
+@keyframes theBeat
+{
+  0%
+  {
+    transform: scale( .95 );
+    opacity: 0.8
+  }
+  20%
+  {
+    transform: scale( 1 );
+    opacity: 1;
+  }
+  40%
+  {
+    transform: scale( .95 );
+    opacity: 0.8
+  }
+  60%
+  {
+    transform: scale( 1 );
+    opacity: 1;
+  }
+  80%
+  {
+    transform: scale( .95 );
+    opacity: 0.8
+  }
+  100%
+  {
+    transform: scale(.95 );
+    opacity: 0.8
+  }
+}
+.media-left{
+  clear: both;
+}
+.userImage{
+min-width: 50px;
+min-height: 50px;
+}
+
+.userP{
+  --box-shadow-color: palegoldenrod;
 }
