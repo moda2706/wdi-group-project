@@ -3,6 +3,7 @@ angular
 .controller('ShowIndexCtrl', ShowIndexCtrl)
 .directive('keypressEvents', KeyPressDirective);
 
+
 function KeyPressDirective($document, $rootScope) {
   return {
     restrict: 'A',
@@ -15,7 +16,6 @@ function KeyPressDirective($document, $rootScope) {
 }
 
 ShowIndexCtrl.$inject = ['Level', '$stateParams', '$scope', '$rootScope', 'User', 'CurrentUserService', '$state'];
-
 
 
 function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUserService, $state) {
@@ -55,7 +55,6 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
   // function which runs each time user enters a character
   $scope.output = function() {
 
-    console.log('hello');
     if(!wasTimerStarted) {
       wasTimerStarted = true;
       timeLeft = vm.level.seconds;
@@ -103,8 +102,9 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
     //Check for win condition:
     if(inputText === vm.level.content) {
       // User wins!
-      alert('You won!');
       userCompletedLevel();
+      $scope.$popUpWindow = $('#popUpWindow').html(`<h2>Your Score: ${globalScore.toFixed(0)}</h2><h2>Time Left: ${timeLeft}</h2> <span class="moveOn">Press Enter</span>`);
+      $scope.$popUpWindow = $('#popUpWindow').removeClass().addClass('transformActive');
     }
 
   };
@@ -127,7 +127,7 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
     .$promise
     .then(level => {
       console.log(level);
-      $state.go('levelsIndex');
+      // $state.go('levelsIndex');
     });
 
     CurrentUserService.getUser();
@@ -151,7 +151,8 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
         $scope.$secondsField = $('#secondsField').html(`Seconds: 0`);
         clearInterval(timerID);
         alert('No more time left!');
-        $state.go('levelsIndex');
+
+        // $state.go('levelsIndex');
       }
     }, 1000);
 
@@ -190,6 +191,7 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
   //     event.preventDefault();
   //   });
   // }
+
 
 }
 

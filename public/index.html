@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/css/style.css">
   <!-- endinject -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet">
 </head>
 <body ng-controller="MainCtrl as main">
   <header ng-controller="LevelIndexCtrl as levelsIndex">
@@ -22,18 +22,18 @@
       </a>
       <div class="flex-grow pa3 flex items-center">
         <!-- <a class="f6 link dib white dim mr3 mr4-ns" href="#0">About</a> -->
-        <a class=" f5 link dib white dim mr3 mr4-ns" ng-hide="main.user" ui-sref="login" title="Login">Login &#9773</a>
+        <a class="br3 f6 f4-m f4-l dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4" ng-hide="main.user" ui-sref="login" title="Login">Login &#9773</a>
 
-        <a class="navItem pa2 white link dark-gray f6 f4-m f4-l fr  mh2" ng-show="main.user" title="Users" ui-sref="usersIndex">Profile</a>
+        <a class="br3 f6 f4-m f4-l dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4" ng-show="main.user" title="Users" ui-sref="usersIndex">Profile</a>
 
-        <a class="navItem pa2 white link dark-gray f6 f4-m f4-l fr  mh2" ng-show="main.user" title="levels" ui-sref="levelsIndex">Levels</a>
+        <a class="br3 f6 f4-m f4-l dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4" ng-show="main.user" title="levels" ui-sref="levelsIndex">Levels</a>
 
-        <a class="navItem pa2 white link dark-gray f6 f4-m f4-l fr  mh2" ng-show="main.user"   ng-click="main.logout()" title="Logout">Logout</a>
+        <a class="br3 f6 f4-m f4-l dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4" ng-show="main.user"   ng-click="main.logout()" title="Logout">Logout</a>
 
-        <a class="f6 dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4 br-pill ba b--white-20" ng-controller="MainCtrl as main" ng-hide="main.user" ui-sref="register">Sign Up</a>
+        <a class="br3 f6 f4-m f4-l dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4" ng-controller="MainCtrl as main" ng-hide="main.user" ui-sref="register">Sign Up</a>
       </div>
     </nav>
   </header>
-      <main ui-view></main>
+  <main ui-view></main>
 </body>
 </html>

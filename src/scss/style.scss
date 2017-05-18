@@ -187,7 +187,7 @@ nav{
 {
   0%
   {
-    transform: scale( .95 );
+    transform: scale( .98 );
     opacity: 0.8
   }
   20%
@@ -197,7 +197,7 @@ nav{
   }
   40%
   {
-    transform: scale( .95 );
+    transform: scale( .98 );
     opacity: 0.8
   }
   60%
@@ -207,12 +207,12 @@ nav{
   }
   80%
   {
-    transform: scale( .95 );
+    transform: scale( .98 );
     opacity: 0.8
   }
   100%
   {
-    transform: scale(.95 );
+    transform: scale(.98 );
     opacity: 0.8
   }
 }
@@ -266,4 +266,63 @@ nav{
   background-position: center;
   background-image: url('../images/ceHome.png');
   height: 500px;
+}
+
+.tickets{
+  min-width: 225px;
+  animation: none;
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+
+.tickets:last-child {
+  border: 5px solid #3ee5ac;
+  animation: heartbeat 3s infinite;
+  display: inline-block;
+  -webkit-animation-name:theBeat;
+}
+
+.transformActive{
+  position:absolute;
+  background: white;
+  top: 20%;
+  left: 37.5%;
+  width: 25%;
+  height: 50%;
+  background: transparent;
+  text-align: center;
+  color: black;
+  border-radius: 10px;
+  line-height: 20px;
+  padding: 10px;
+  animation: goUp 0.20s;
+  -webkit-animation-name:goUp;
+  background: white;
+  background-image: url('http://orig07.deviantart.net/eac0/f/2011/185/c/d/victory_cat_by_oman96-d3kzkd2.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  z-index: 100;
+  background-size: 200px 150px;
+  border: 2px solid grey;
+
+}
+
+.hideMe{
+  display: none;
+}
+
+
+@keyframes goUp {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.moveOn{
+  line-height: 2100%;
+  font-weight: bold;
 }

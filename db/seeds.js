@@ -15,7 +15,7 @@ Level
   {
     name: 'Journey Begins',
     image: 'https://oneinabillionblog.files.wordpress.com/2012/07/journey-road.jpg',
-    content: `I am Jack the Cat. And here does my journey start.`,
+    content: `I.`,
     index: 1,
     seconds: 30
   },
