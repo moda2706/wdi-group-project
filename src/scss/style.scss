@@ -62,6 +62,27 @@ a,article{
     transform: skew(0deg, 5deg);
     text-align: center;
 
+  .bratva {
+    width: 26em;
+    white-space:nowrap;
+    overflow:hidden;
+    // -webkit-animation: type 5s steps(10, end);
+    animation: type 5s steps(15, end);
+}
+
+@keyframes type{
+    from { width: 0; }
+}
+
+@-webkit-keyframes type{
+    from { width: 0; }
+}
+
+
+
+
+  }
+
     .title{
       padding-top: 100px;
       font-weight: normal;
@@ -73,7 +94,6 @@ a,article{
       color: lighten(#00B285, 55);
     }
 
-  }
 }
 
 .footer{
