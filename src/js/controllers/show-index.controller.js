@@ -16,13 +16,17 @@ function KeyPressDirective($document, $rootScope) {
 
 ShowIndexCtrl.$inject = ['Level', '$stateParams', '$scope', '$rootScope', 'User', 'CurrentUserService', '$state'];
 
-let wasTimerStarted = false;
-let timeLeft = 0, timerID, globalScore = 0;
+
 
 function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUserService, $state) {
 
+  let wasTimerStarted = false;
+  let timeLeft = 0, timerID, globalScore = 0;
+
   const vm = this;
   vm.level = Level.get($stateParams);
+  console.log('Global Score is ');
+  console.log(globalScore);
 
   // Preventing TAB
   $(document).keydown(function(objEvent) {
@@ -72,8 +76,6 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
       // So far the input text is correct. Check for win condition:
       spanClass = 'correct';
 
-
-
       if(inputText === vm.level.content) {
 
         // User wins!
@@ -109,7 +111,8 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
     const play = {
       score: globalScore,
       wpm: 1,
-      secondsLeft: 1
+      secondsLeft: 1,
+      index: vm.level.index
     };
 
     Level
