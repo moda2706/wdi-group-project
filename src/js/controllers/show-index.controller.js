@@ -28,6 +28,8 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
   console.log('Global Score is ');
   console.log(globalScore);
 
+  $scope.$textInput = $('#textInput').focus();
+
   // Preventing TAB
   $(document).keydown(function(objEvent) {
     if (objEvent.keyCode === 9) {  //tab pressed
@@ -40,6 +42,12 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
       console.log('Enter!');
       if (isLevelCompleted) $state.go('levelsIndex');
     }
+  });
+
+  $('body').click(function() {
+    // do something here
+    console.log('Body click');
+    $scope.$textInput = $('#textInput').focus();
   });
 
   // Getting our Level Data
