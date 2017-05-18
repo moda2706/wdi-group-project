@@ -40,6 +40,7 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
   $(document).keydown(function(e) {
     if(e.which === 13) {
       console.log('Enter!');
+      e.preventDefault(); // stops its action
       if (isLevelCompleted) $state.go('levelsIndex');
     }
   });
@@ -171,6 +172,7 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
       // If the count down is finished, write some text
       if (timeLeft === -1) {
 
+        isLevelCompleted = true;
         $scope.$secondsField = $('#secondsField').html(`Seconds: 0`);
         clearInterval(timerID);
         // **** alert('No more time left!');
