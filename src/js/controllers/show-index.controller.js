@@ -20,7 +20,7 @@ ShowIndexCtrl.$inject = ['Level', '$stateParams', '$scope', '$rootScope', 'User'
 
 function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUserService, $state) {
 
-  let wasTimerStarted = false;
+  let wasTimerStarted = false, isLevelCompleted = false;
   let timeLeft = 0, timerID, globalScore = 0, charactersEntered = 0;
 
   const vm = this;
@@ -28,11 +28,26 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
   console.log('Global Score is ');
   console.log(globalScore);
 
+  $scope.$textInput = $('#textInput').focus();
+
   // Preventing TAB
   $(document).keydown(function(objEvent) {
     if (objEvent.keyCode === 9) {  //tab pressed
       objEvent.preventDefault(); // stops its action
     }
+  });
+
+  $(document).keydown(function(e) {
+    if(e.which === 13) {
+      console.log('Enter!');
+      if (isLevelCompleted) $state.go('levelsIndex');
+    }
+  });
+
+  $('body').click(function() {
+    // do something here
+    console.log('Body click');
+    $scope.$textInput = $('#textInput').focus();
   });
 
   // Getting our Level Data
@@ -105,9 +120,12 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
     //Check for win condition:
     if(inputText === vm.level.content) {
       // User wins!
+
       userCompletedLevel();
+      isLevelCompleted = true;
       $scope.$popUpWindow = $('#popUpWindow').html(`<h2>Your Score: ${globalScore.toFixed(0)}</h2><h2>Time Left: ${timeLeft}</h2> <span class="moveOn">Press Enter</span>`);
       $scope.$popUpWindow = $('#popUpWindow').removeClass().addClass('transformActive');
+
     }
 
   };
@@ -132,6 +150,8 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
       console.log(level);
       // $state.go('levelsIndex');
     });
+
+
 
     CurrentUserService.getUser();
 
