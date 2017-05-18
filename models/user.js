@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
   image: { type: String, trim: true, default: 'https://www.colourbox.com/preview/19976565-computer-monitor-and-keyboard-icon-nice-set-of-beautiful-icons-twisted-spiral-into-the-center-of-one-large-icon-vector.jpg' },
   email: { type: String, unique: true, trim: true, required: true },
   userScore: { type: Number, default: 0},
+  currentLevel: { type: Number, default: 1},
   passwordHash: { type: String, required: true }
 });
 
