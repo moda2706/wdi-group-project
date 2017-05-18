@@ -12,6 +12,7 @@ function levelsIndex(req, res, next) {
 
 function levelsShow(req, res, next) {
   console.log(req.params.id);
+
   Level
   .findById(req.params.id)
   .exec()
@@ -46,7 +47,17 @@ function levelsUpdate(req, res) {
 
       // Adding new score to user
       const newScore = req.user.userScore + play.score;
+      let scoreSum = 0;
       req.user.userScore = newScore;
+      req.user.levelsScore.push(play.score);
+
+      for(let i = 0; i < req.user.levelsScore.length; i++) {
+        scoreSum += req.user.levelsScore[i];
+      }
+
+      console.log('Score sum is ');
+      console.log(scoreSum);
+
       console.log(`User score now is ${req.user.userScore}`);
 
       // Adding a new level to user
@@ -54,16 +65,15 @@ function levelsUpdate(req, res) {
       req.user.currentLevel = newLevel;
       console.log(`User score now is ${req.user.currentLevel}`);
 
-      // Saving the user
-      req.user.save();
-
     } else {
+      req.user.levelsScore[play.index] = play.score;
+      console.log('Updated level score: ');
+      console.log(req.user.levelsScore[play.index]);
       previous.set(play);
     }
 
-    // Update user's score
-
-
+    // Saving the user
+    req.user.save();
     return level.save();
   })
   .then(level => res.status(200).json(level))

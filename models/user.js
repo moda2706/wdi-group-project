@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, unique: true, trim: true, required: true },
   userScore: { type: Number, default: 0},
   currentLevel: { type: Number, default: 1},
+  levelsScore: [{ type: Number }],
   passwordHash: { type: String, required: true }
 });
 
