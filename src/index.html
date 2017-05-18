@@ -12,23 +12,23 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<div class="boris">
   <body ng-controller="MainCtrl as main">
     <header ng-controller="LevelIndexCtrl as levelsIndex">
-      <nav class="db dt-l w-100 border-box pa3 ph5-l">
-
-        <a class="db dtc-l v-mid mid-gray link w-100 w-25-l tc tl-l mb2 mb0-l" href="#" title="Home">
+      <nav class="mb3 flex justify-between bb b--white-10">
+        <a class="link white-70 hover-white no-underline flex items-center pa2" href="home">
           <img ng-src="/images/QWERTY.png" class="w10 h3" alt="Qwerty App" ui-sref="home">
         </a>
-        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+        <div class="flex-grow pa3 flex items-center">
+          <!-- <a class="f6 link dib white dim mr3 mr4-ns" href="#0">About</a> -->
+          <a class="f5 link dib white dim mr3 mr4-ns" ng-hide="main.user" ui-sref="login" title="Login">Login &#9773</a>
 
-          <a class="navL pa2 white link dark-gray f6 f5-l dib mh3 mr4-l" ng-show="main.user" title="Users" ui-sref="usersIndex">Profile</a>
+          <a class="pa2 white link dark-gray f6 f4-m f5-l fr dim mh2" ng-show="main.user" title="Users" ui-sref="usersIndex">Profile</a>
 
-          <a class="navL pa2 white link dark-gray f6 f5-l dib mh3 mr4-l" ng-show="main.user" title="levels" ui-sref="levelsIndex">Levels</a>
+          <a class="pa2 white link dark-gray f6 f4-m f5-l fr dim mh2" ng-show="main.user" title="levels" ui-sref="levelsIndex">Levels</a>
 
-          <a class="navL pa2 white link dark-gray f6 f4-m f3-l dib" ng-hide="main.user"   ui-sref="login" title="Login">Login &#9776;</a>
+          <a class="pa2 white link dark-gray f6 f4-m f5-l fr dim mr5" ng-show="main.user"   ng-click="main.logout()" title="Logout">Logout</a>
 
-          <a class="navL pa2 white link dark-gray f6 f4-m f5-l dib" ng-show="main.user"   ng-click="main.logout()" title="Logout">Logout</a>
+          <a class="f6 dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4 br-pill ba b--white-20" ng-controller="MainCtrl as main" ng-hide="main.user" ui-sref="register">Sign Up</a>
         </div>
       </nav>
     </header>
@@ -36,5 +36,4 @@
       <main ui-view></main>
     </div>
   </body>
-</div>
 </html>

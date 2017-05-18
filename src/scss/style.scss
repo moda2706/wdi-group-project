@@ -242,7 +242,21 @@ min-height: 50px;
 }
 
 .navL:hover{
-  border: 2px solid white;
-  background: white;
-  color: black;
+  text-shadow:0 0 1px black, 0 0 1px black, 0 0 1px black
+
+}
+
+
+.navL:hover {
+  font-weight:bold;
+  background:#eee;
+}
+.navL::after {
+  display:block;
+  content:attr(title);
+  font-weight:bold;
+  height:1px;
+  color:transparent;
+  overflow:hidden;
+  visibility:hidden;
 }
