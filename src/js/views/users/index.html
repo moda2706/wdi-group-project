@@ -10,7 +10,7 @@
   <div class="mw9 ph3-ns">
     <div class="cf ph2-ns">
       <div class="fl w-100 w-50-ns pa2">
-        <div class="bg-white pv4 tc mr5 ba br4 b--light-blue userP">
+        <div class="bg-white pv4 tc mr5 ba br3 b--light-blue userP">
           <img id="profileImage"  ng-model="profileImage" ng-src="{{ main.user.image }}" class="h4 mw4 mh4 br-100 mw4 v-mid">
 
           <div id="profileUsername" class="db f2 mt3 mb4">
@@ -37,12 +37,12 @@
       </div>
 
       <div class="fl w-100 w-50-ns center mw5 mw6-ns hidden mv2">
-        <div class="bg-dark-gray white f4 pa3 tc br4 br--top"> Leader Board</div>
+        <div class="bg-dark-gray white f4 pa3 tc br3 br--top"> Leader Board</div>
         <!-- <h1 class="f4 bg-near-black white mv0 pv2 ph3 tc">Leader Board</h1> -->
-        <div class="bg-white ph2 br4 br--bottom ba b--light-blue">
+        <div class="bg-white ph2 br3 br--bottom ba b--light-blue">
           <div class="pb3"></div>
           <div class="media" ng-repeat="user in usersIndex.users | orderBy:'-userScore' track by $index" index="$userScore">
-            <div ng-click="usersIndex.selectUser(user._id)" ng-model="cell" class="media-left ph3 pt1">
+            <div ng-click="usersIndex.selectUser(user._id)" ng-model="cell" class=" hvr-shutter-in-horizontal media-left ph3 pt1">
               <a ui-sref="mv1">
                 <h4 class="dib ml4 mr2">{{ $index + 1 }}</h4>
                 <h4 class="dib ml4 mb3">{{ user.username }}</h4>
@@ -50,7 +50,7 @@
                 <div class="imageC fl mr4 mb2">
                   <img class="br-100 h2 ba bw1 b--grey mw2 mh2 userImage" ng-src="{{ user.image }}">
                 </div>
-                <hr>
+                
               </a>
             </div>
           </div>

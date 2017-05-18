@@ -1,17 +1,17 @@
 <div class="skewed-bgR"></div>
 <div class="content">
-<div class="ba bw1 mw7 center bg-white pa3 m5 ph5-ns">
+<div class="ba br3 bw1 mw7 center bg-white pa3 m5 ph5-ns">
   <h1 class="black">Register</h1>
 
   <form ng-submit="register.register()" name="register.registerForm" novalidate>
 
     <div class="mt3">
       <label class="db fw6 lh-copy f6">Username</label>
-      <input class="form-control pa2 ba bg-transparent hover-bg-black hover-white w-80" type="text" name="username" ng-model="register.user.username" placeholder="Username">
+      <input class="br3 form-control pa2 ba bg-transparent hover-bg-black hover-white w-80" type="text" name="username" ng-model="register.user.username" placeholder="Username">
     </div>
     <div class="mt3">
       <label class="db fw6 lh-copy f6">Email</label>
-      <input class="form-control pa2 ba bg-transparent hover-bg-black hover-white w-80" type="email" name="email" ng-model="register.user.email" placeholder="Email" ng-pattern="register.emailValidate" required>
+      <input class="br3 form-control pa2 ba bg-transparent hover-bg-black hover-white w-80" type="email" name="email" ng-model="register.user.email" placeholder="Email" ng-pattern="register.emailValidate" required>
     </div>
     <div class="" ng-messages="register.registerForm.email.$error" ng-show="(register.registerForm.$submitted || register.registerForm.email.$touched)">
       <p ng-message="required">Please enter your email</p>
@@ -19,12 +19,12 @@
     </div>
     <div class="form-group mv3">
       <label class="db fw6 lh-copy f6">Image</label>
-      <input class="form-control pa2 ba bg-transparent hover-bg-black hover-white w-80" type="text" name="image" ng-model="register.user.image" placeholder="Image">
+      <input class="br3 form-control pa2 ba bg-transparent hover-bg-black hover-white w-80" type="text" name="image" ng-model="register.user.image" placeholder="Image">
     </div>
 
     <div class="form-group mv3">
       <label class="db fw6 lh-copy f6">Password</label>
-      <input class="form-control pa2 ba bg-transparent hover-bg-black hover-white w-80" type="password" name="password" ng-model="register.user.password" placeholder="Password" minlength="6" required>
+      <input class="br3 form-control pa2 ba bg-transparent hover-bg-black hover-white w-80" type="password" name="password" ng-model="register.user.password" placeholder="Password" minlength="6" required>
     </div>
 
     <div class="" ng-messages="register.registerForm.password.$error" ng-show="(register.registerForm.$submitted || register.registerForm.password.$touched)">
@@ -33,7 +33,7 @@
     </div>
 
     <div class="form-group mv3">
-      <input class="form-control pa2 ba bg-transparent hover-bg-black hover-white w-80" type="password" name="passwordConfirmation" ng-model="register.user.passwordConfirmation" placeholder="Password confirmation" ng-pattern="register.user.password" required>
+      <input class="br3 form-control pa2 ba bg-transparent hover-bg-black hover-white w-80" type="password" name="passwordConfirmation" ng-model="register.user.passwordConfirmation" placeholder="Password confirmation" ng-pattern="register.user.password" required>
     </div>
 
     <div class="" ng-messages="register.registerForm.passwordConfirmation.$error" ng-show="(register.registerForm.$submitted || register.registerForm.passwordConfirmation.$touched)">
@@ -41,7 +41,7 @@
       <p ng-message="pattern">This must match your password</p>
     </div>
 
-    <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Submit" />
+    <input class="br3 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Submit" />
   </form>
 </div>
 </div>
