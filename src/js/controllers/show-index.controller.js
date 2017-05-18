@@ -21,7 +21,7 @@ ShowIndexCtrl.$inject = ['Level', '$stateParams', '$scope', '$rootScope', 'User'
 function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUserService, $state) {
 
   let wasTimerStarted = false;
-  let timeLeft = 0, timerID, globalScore = 0;
+  let timeLeft = 0, timerID, globalScore = 0, charactersEntered = 0;
 
   const vm = this;
   vm.level = Level.get($stateParams);
@@ -55,6 +55,7 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
   // function which runs each time user enters a character
   $scope.output = function() {
 
+    console.log('hello');
     if(!wasTimerStarted) {
       wasTimerStarted = true;
       timeLeft = vm.level.seconds;
@@ -65,22 +66,21 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
     const inputText = $scope.textInput;
     const charIndex = inputText.length-1;
     const originalText = vm.level.content.substring(0,$scope.textInput.length);
-    globalScore = globalScore + (inputText.length * timeLeft)/10;
-
-    //vm.score = levelScore;
-    // Updating score
-    $scope.$scoreField = $('#scoreField').html(`Score: ${globalScore.toFixed(0)}`);
 
     // Checking input for mistakes
     if (originalText[charIndex] === inputText[charIndex]) {
-      // So far the input text is correct. Check for win condition:
+
+      // So far the input text is correct.
       spanClass = 'correct';
 
-      if(inputText === vm.level.content) {
+      // Adding score only for new correct characters
+      if(inputText.length > charactersEntered) {
+        console.log(`Input text length is ${inputText.length}`);
+        charactersEntered++;
+        console.log(`CharactersEntered is ${charactersEntered}`);
+        globalScore = globalScore + (charactersEntered * timeLeft)/50;
+        $scope.$scoreField = $('#scoreField').html(`Score: ${globalScore.toFixed(0)}`);
 
-        // User wins!
-        alert('You won!');
-        userCompletedLevel();
       }
 
     } else {
@@ -98,6 +98,13 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
     } else {
       allSpans.removeClass();
       allSpans.eq(0).addClass('next');
+    }
+
+    //Check for win condition:
+    if(inputText === vm.level.content) {
+      // User wins!
+      alert('You won!');
+      userCompletedLevel();
     }
 
   };
