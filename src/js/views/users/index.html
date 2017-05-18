@@ -8,24 +8,26 @@
     <div class="cf ph2-ns">
       <div class="fl w-100 w-50-ns pa2">
         <div class="bg-white pv4 tc mr5 ba br4 b--light-blue userP">
-          <img ng-src="{{ main.user.image}}" class="h4 mw4 mh4 br-100 mw4 v-mid">
-          <div class="db f2 mt3 mb4">
+          <img id="profileImage"  ng-model="profileImage" ng-src="{{ main.user.image }}" class="h4 mw4 mh4 br-100 mw4 v-mid">
+
+          <div id="profileUsername" class="db f2 mt3 mb4">
             {{ main.user.username }}
           </div>
+
           <div class="">
             - - - - - - - - - - -
-            <div class=" pa1 dib pa3 br-100 bg-black white f3  ba bw2 pumpIt">
+            <div id="profileScore" class=" pa1 dib pa3 br-100 bg-black white f3  ba bw2 pumpIt">
               {{ main.user.userScore | number:0 }} pts
             </div>
             - - - - - - - - - - -
           </div>
           <div class="db tl f4 mt3 ml4 mb3">
-            Progress: <span class="fr mr4">5/15</span>
+            Progress: <span id="profileProgress" class="fr mr4"><strong> {{ main.user.currentLevel }} / 15 </strong></span>
             <div class="mt2">
               Most played: <span class="fr mr4">English</span>
             </div>
             <div class="mt2">
-              Highest level score:<span class="fr mr4">{{ main.user.userScore | number:0  }} pts</span>
+              Highest level score:<span class="fr mr4"><strong>{{ main.user.levelsScore }} </strong></span>
             </div>
           </div>
         </div>
@@ -37,7 +39,7 @@
         <div class="bg-white ph2 br4 br--bottom ba b--light-blue">
           <div class="pb3"></div>
           <div class="media" ng-repeat="user in usersIndex.users | orderBy:'-userScore' track by $index" index="$userScore">
-            <div ng-click="usersIndex.selectUser()" ng-model="cell" class="media-left ph3 pt1">
+            <div ng-click="usersIndex.selectUser(user._id)" ng-model="cell" class="media-left ph3 pt1">
               <a ui-sref="mv1">
                 <h4 class="dib ml4 mr2">{{ $index + 1 }}</h4>
                 <h4 class="dib ml4 mb3">{{ user.username }}</h4>

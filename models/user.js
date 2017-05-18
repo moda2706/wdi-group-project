@@ -3,6 +3,7 @@ const bcrypt    = require('bcrypt');
 const validator = require('validator');
 
 const userSchema = new mongoose.Schema({
+
   username: { type: String, unique: true, trim: true, required: true },
   image: { type: String, trim: true, default: 'images/cat.png' },
   email: { type: String, unique: true, trim: true, required: true },
@@ -10,6 +11,7 @@ const userSchema = new mongoose.Schema({
   currentLevel: { type: Number, default: 1},
   levelsScore: [{ type: Number }],
   passwordHash: { type: String, required: true }
+  
 });
 
 userSchema
