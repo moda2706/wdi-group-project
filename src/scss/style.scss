@@ -304,13 +304,32 @@ nav{
   z-index: 100;
   background-size: 200px 150px;
   border: 2px solid grey;
-
 }
 
-.hideMe{
-  display: none;
+.transformActiveFail{
+  position:absolute;
+  background: white;
+  top: 20%;
+  left: 37.5%;
+  width: 25%;
+  height: 50%;
+  background: transparent;
+  text-align: center;
+  color: black;
+  border-radius: 10px;
+  line-height: 20px;
+  padding: 10px;
+  animation: goUp 0.20s;
+  -webkit-animation-name:goUp;
+  background: white;
+  background-image: url('http://vignette2.wikia.nocookie.net/yoville/images/b/b0/Sad_Cat.png/revision/latest?cb=20160529063423');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  z-index: 100;
+  background-size: 200px 150px;
+  border: 5px solid #FF645E;
 }
-
 
 @keyframes goUp {
   0% {
@@ -322,6 +341,10 @@ nav{
 }
 .moveOn{
   line-height: 2100%;
+  font-weight: bold;
+}
+.moveOnF{
+  line-height: 200%;
   font-weight: bold;
 }
 

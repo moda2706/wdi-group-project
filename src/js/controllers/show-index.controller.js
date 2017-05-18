@@ -153,8 +153,9 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
 
         $scope.$secondsField = $('#secondsField').html(`Seconds: 0`);
         clearInterval(timerID);
-        alert('No more time left!');
-
+        // **** alert('No more time left!');
+        $scope.$popUpWindow = $('#popUpWindowFail').html(`<h1>Time Out!</h1> <span class="moveOnF">Press Enter</span>`);
+        $scope.$popUpWindow = $('#popUpWindowFail').removeClass().addClass('transformActiveFail');
         // $state.go('levelsIndex');
       }
     }, 1000);
