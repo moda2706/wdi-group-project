@@ -74,6 +74,7 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
 
       // Adding score only for new correct characters
       if(inputText.length > charactersEntered) {
+
         console.log(`Input text length is ${inputText.length}`);
         charactersEntered++;
         console.log(`CharactersEntered is ${charactersEntered}`);
@@ -91,9 +92,11 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
 
     currentSpan.removeClass();
     if (inputText.length !== 0) {
+
       currentSpan.addClass(spanClass);
       currentSpan.nextAll().removeClass();
       currentSpan.next().addClass('next');
+
     } else {
       allSpans.removeClass();
       allSpans.eq(0).addClass('next');
