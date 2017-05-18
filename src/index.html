@@ -12,28 +12,26 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-  <body ng-controller="MainCtrl as main">
-    <header ng-controller="LevelIndexCtrl as levelsIndex">
-      <nav class="mb3 flex justify-between bb b--white-10">
-        <a class="link white-70 hover-white no-underline flex items-center pa2" href="home">
-          <img ng-src="/images/QWERTY.png" class="w10 h3" alt="Qwerty App" ui-sref="home">
-        </a>
-        <div class="flex-grow pa3 flex items-center">
-          <!-- <a class="f6 link dib white dim mr3 mr4-ns" href="#0">About</a> -->
-          <a class=" f5 link dib white dim mr3 mr4-ns" ng-hide="main.user" ui-sref="login" title="Login">Login &#9773</a>
+<body ng-controller="MainCtrl as main">
+  <header ng-controller="LevelIndexCtrl as levelsIndex">
+    <nav class=" mb3 flex justify-between bb b--white-10">
+      <a class="link white-70 hover-white no-underline flex items-center pa2" href="home">
+        <img ng-src="/images/QWERTY.png" class="w10 h3" alt="Qwerty App" ui-sref="home">
+      </a>
+      <div class="flex-grow pa3 flex items-center">
+        <!-- <a class="f6 link dib white dim mr3 mr4-ns" href="#0">About</a> -->
+        <a class=" f5 link dib white dim mr3 mr4-ns" ng-hide="main.user" ui-sref="login" title="Login">Login &#9773</a>
 
-          <a class="navItem pa2 white link dark-gray f6 f4-m f4-l fr  mh2" ng-show="main.user" title="Users" ui-sref="usersIndex">Profile</a>
+        <a class="navItem pa2 white link dark-gray f6 f4-m f4-l fr  mh2" ng-show="main.user" title="Users" ui-sref="usersIndex">Profile</a>
 
-          <a class="navItem pa2 white link dark-gray f6 f4-m f4-l fr  mh2" ng-show="main.user" title="levels" ui-sref="levelsIndex">Levels</a>
+        <a class="navItem pa2 white link dark-gray f6 f4-m f4-l fr  mh2" ng-show="main.user" title="levels" ui-sref="levelsIndex">Levels</a>
 
-          <a class="navItem pa2 white link dark-gray f6 f4-m f4-l fr  mh2" ng-show="main.user"   ng-click="main.logout()" title="Logout">Logout</a>
+        <a class="navItem pa2 white link dark-gray f6 f4-m f4-l fr  mh2" ng-show="main.user"   ng-click="main.logout()" title="Logout">Logout</a>
 
-          <a class="f6 dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4 br-pill ba b--white-20" ng-controller="MainCtrl as main" ng-hide="main.user" ui-sref="register">Sign Up</a>
-        </div>
-      </nav>
-    </header>
-    <div class="container">
+        <a class="f6 dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4 br-pill ba b--white-20" ng-controller="MainCtrl as main" ng-hide="main.user" ui-sref="register">Sign Up</a>
+      </div>
+    </nav>
+  </header>
       <main ui-view></main>
-    </div>
-  </body>
+</body>
 </html>
