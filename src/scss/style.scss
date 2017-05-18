@@ -224,6 +224,34 @@ min-width: 50px;
 min-height: 50px;
 }
 
-.userP{
-  --box-shadow-color: palegoldenrod;
+
+.levelShow{
+  background: #FF645E;
+}
+
+.scoreShow{
+  background: #3788CC;
+}
+
+.secondsShow{
+  background: #37CCA3;
+}
+
+.wpmShow{
+  background: #A330B2;
+}
+
+
+
+.navItem:hover {
+  font-weight:bold;
+  background:#eee;
+}
+.navItem::after {
+  margin: 0; padding: 0;
+list-style: none;
+  position: absolute;
+  color:black;
+  overflow:hidden;
+  visibility:hidden;
 }
