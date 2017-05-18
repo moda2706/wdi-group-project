@@ -14,9 +14,9 @@ function KeyPressDirective($document, $rootScope) {
   };
 }
 
-ShowIndexCtrl.$inject = ['Level', '$stateParams', '$scope', '$rootScope', 'User'];
+ShowIndexCtrl.$inject = ['Level', '$stateParams', '$scope', '$rootScope', 'User', 'CurrentUserService', '$state'];
 
-function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User) {
+function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUserService, $state) {
 
   const vm = this;
   vm.level = Level.get($stateParams);
@@ -101,7 +101,10 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User) {
     .$promise
     .then(level => {
       console.log(level, '*****************************');
+      $state.go('levelsIndex');
     });
+
+    CurrentUserService.getUser();
 
   }
   // $scope.key = 'none';
