@@ -20,13 +20,13 @@
         </a>
         <div class="flex-grow pa3 flex items-center">
           <!-- <a class="f6 link dib white dim mr3 mr4-ns" href="#0">About</a> -->
-          <a class="navItem f5 link dib white dim mr3 mr4-ns" ng-hide="main.user" ui-sref="login" title="Login">Login &#9773</a>
+          <a class=" f5 link dib white dim mr3 mr4-ns" ng-hide="main.user" ui-sref="login" title="Login">Login &#9773</a>
 
-          <a class="navItem pa2 white link dark-gray f6 f4-m f5-l fr dim mh2" ng-show="main.user" title="Users" ui-sref="usersIndex">Profile</a>
+          <a class="navItem pa2 white link dark-gray f6 f4-m f4-l fr  mh2" ng-show="main.user" title="Users" ui-sref="usersIndex">Profile</a>
 
-          <a class="navItem pa2 white link dark-gray f6 f4-m f5-l fr dim mh2" ng-show="main.user" title="levels" ui-sref="levelsIndex">Levels</a>
+          <a class="navItem pa2 white link dark-gray f6 f4-m f4-l fr  mh2" ng-show="main.user" title="levels" ui-sref="levelsIndex">Levels</a>
 
-          <a class="navItem pa2 white link dark-gray f6 f4-m f5-l fr dim mr5" ng-show="main.user"   ng-click="main.logout()" title="Logout">Logout</a>
+          <a class="navItem pa2 white link dark-gray f6 f4-m f4-l fr  mh2" ng-show="main.user"   ng-click="main.logout()" title="Logout">Logout</a>
 
           <a class="f6 dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4 br-pill ba b--white-20" ng-controller="MainCtrl as main" ng-hide="main.user" ui-sref="register">Sign Up</a>
         </div>

@@ -245,13 +245,17 @@ min-height: 50px;
 
 .navItem:hover {
   font-weight:bold;
-  background:#eee;
+  letter-spacing: -1.5px;
+  border: 2px solid white;
+  border-radius: 5px;
+  animation: 1.5s ease-out borderIn;
 }
-.navItem::after {
-  margin: 0; padding: 0;
-list-style: none;
-  position: absolute;
-  color:black;
-  overflow:hidden;
-  visibility:hidden;
+
+@keyframes borderIn {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
 }

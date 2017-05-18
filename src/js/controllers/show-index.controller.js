@@ -17,7 +17,7 @@ function KeyPressDirective($document, $rootScope) {
 ShowIndexCtrl.$inject = ['Level', '$stateParams', '$scope', '$rootScope', 'User', 'CurrentUserService', '$state'];
 
 let wasTimerStarted = false;
-let timeLeft = 0, timerID;
+let timeLeft = 0, timerID, globalScore = 0;
 
 function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUserService, $state) {
 
@@ -61,10 +61,10 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
     const inputText = $scope.textInput;
     const charIndex = inputText.length-1;
     const originalText = vm.level.content.substring(0,$scope.textInput.length);
-    const levelScore = inputText.length;
-    vm.score = levelScore;
+    globalScore = inputText.length * timeLeft;
+    //vm.score = levelScore;
     // Updating score
-    $scope.$scoreField = $('#scoreField').html(`Score: ${levelScore}`);
+    $scope.$scoreField = $('#scoreField').html(`Score: ${globalScore}`);
 
     // Checking input for mistakes
     if (originalText[charIndex] === inputText[charIndex]) {
@@ -99,10 +99,12 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
 
   function userCompletedLevel() {
 
+    console.log('Level completed!');
+    console.log(globalScore);
     clearInterval(timerID);
 
     const play = {
-      score: vm.score,
+      score: globalScore,
       wpm: 1,
       secondsLeft: 1
     };
@@ -111,13 +113,15 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
     .update({ id: vm.level._id }, play)
     .$promise
     .then(level => {
-      console.log(level, '*****************************');
+      console.log(level);
       $state.go('levelsIndex');
     });
 
     CurrentUserService.getUser();
 
   }
+
+  console.log('TIMELEFT', timeLeft);
 
   function startTimer() {
 
@@ -127,12 +131,14 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
       timeLeft = timeLeft - 1;
       $scope.$secondsField = $('#secondsField').html(`Seconds: ${timeLeft}`);
       console.log(timeLeft);
+
       // If the count down is finished, write some text
       if (timeLeft === -1) {
 
         $scope.$secondsField = $('#secondsField').html(`Seconds: 0`);
         clearInterval(timerID);
         alert('No more time left!');
+        $state.go('levelsIndex');
       }
     }, 1000);
 
