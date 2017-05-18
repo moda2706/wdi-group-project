@@ -5,6 +5,8 @@ const levelSchema = new mongoose.Schema({
   content: { type: String, required: true, unique: true},
   index: { type: Number, required: true, unique: true },
   seconds: { type: Number, required: true },
+  name: { type: String, required: true },
+  image: {type: String, required: true },
   language: { type: String, enum: ['JS, Ruby'] },
 
   plays: [{
