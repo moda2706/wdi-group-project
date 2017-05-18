@@ -241,22 +241,17 @@ min-height: 50px;
   background: #A330B2;
 }
 
-.navL:hover{
-  text-shadow:0 0 1px black, 0 0 1px black, 0 0 1px black
-
-}
 
 
-.navL:hover {
+.navItem:hover {
   font-weight:bold;
   background:#eee;
 }
-.navL::after {
-  display:block;
-  content:attr(title);
-  font-weight:bold;
-  height:1px;
-  color:transparent;
+.navItem::after {
+  margin: 0; padding: 0;
+list-style: none;
+  position: absolute;
+  color:black;
   overflow:hidden;
   visibility:hidden;
 }
