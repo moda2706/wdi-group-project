@@ -1,6 +1,9 @@
 <div class="skewed-bg"></div>
-<!-- <div class="w-100 ml5 "> -->
-<div class="mw100 center ph5-ns">
+<div class="clint db dn-l"></div>
+<div class="testMedia f6 f4-m f4-l dn-l tc">
+  <h2>Hey! Go get a bigger screen</h2>
+</div>
+<div class="dn db-l mw100 center ph5-ns">
   <h1 class="white-50">Levels</h1>
   <article ng-repeat="level in levelIndex.all | orderBy:'index' | limitTo:  main.user.currentLevel" index="$index" class="pumpIt tickets mh2 dib bg-white br3 pa3 pa4-ns mv3 ba b--black-10" ui-sref="levelsShow({ id: level._id })">
     <div class="tc">

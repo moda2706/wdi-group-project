@@ -42,7 +42,8 @@
         <div class="bg-white ph2 br3 br--bottom ba b--light-blue">
           <div class="pb3"></div>
           <div class="media" ng-repeat="user in usersIndex.users | orderBy:'-userScore' track by $index" index="$userScore">
-            <div ng-click="usersIndex.selectUser(user._id)" ng-model="cell" class=" hvr-shutter-in-horizontal media-left ph3 pt1">
+            <div ng-click="usersIndex.selectUser(user._id)" ng-model="cell" class="hvr-underline-from-center media-left ph3 pt2 mh3 ">
+
               <a ui-sref="mv1">
                 <h4 class="dib ml4 mr2">{{ $index + 1 }}</h4>
                 <h4 class="dib ml4 mb3">{{ user.username }}</h4>
@@ -50,7 +51,7 @@
                 <div class="imageC fl mr4 mb2">
                   <img class="br-100 h2 ba bw1 b--grey mw2 mh2 userImage" ng-src="{{ user.image }}">
                 </div>
-                
+
               </a>
             </div>
           </div>
