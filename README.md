@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> 30201cb2f3fcf27289ea885f4705b30d535a9350
 ##WDI Group Project
 ###Maxim Kartuzov, Monju Miah, Harry Stirling
 
@@ -29,7 +26,7 @@ This will help you to learn touch typing with all ten fingers
 
 In this project we were assemebled in a group of three as part of a  group project. The requirements of this project were to build an JWT authenticated RESTful MEAN stack application using AngularJS, with a chosen CSS framework.
 
-We came up with a concept of few ideas we wanted to run with and chose QWERTY as our chosen idea for this project. 
+We came up with a concept of few ideas we wanted to run with and chose QWERTY as our chosen idea for this project.
 =======
 <img src='/Users/MonjuMiah/Desktop/Group Project/Screen Shot 2017-05-18 at 16.15.18.png'>
 
@@ -46,7 +43,7 @@ We came up with two concept of ideas we waqnted to run with on this group projec
 
 
 
-And the other being our chosen idea for this project. 
+And the other being our chosen idea for this project.
 >>>>>>> 30201cb2f3fcf27289ea885f4705b30d535a9350
 
 <img src='/Users/MonjuMiah/Desktop/Group Project/QWERTYA.jpg'>
@@ -61,9 +58,9 @@ Tasks were organised and delegated using a Trello board. We had three stand-ups 
 
 
 <<<<<<< HEAD
-##Wire-Frames 
+##Wire-Frames
 =======
-##Wire-frames 
+##Wire-frames
 >>>>>>> 30201cb2f3fcf27289ea885f4705b30d535a9350
 
 We also collaborated on the using sketch wireframes before starting to code, so that everyone approved the look of the app which also gave us a foundation/ reference of what our interface should portray.
@@ -89,12 +86,12 @@ We also collaborated on the using sketch wireframes before starting to code, so 
 =======
 This was our first experience working within a team. We found some conflicts with our Git commits. In order to overcome we made sure that we were all woking on a different branch and merged to our secondary master branch which we made sure was as up-to-date as possible, with multiple merges per day and many commits.
 
-We also had a stumbling block with error handling in our registration form as it was not passing the error messages when data was 
+We also had a stumbling block with error handling in our registration form as it was not passing the error messages when data was
 >>>>>>> 30201cb2f3fcf27289ea885f4705b30d535a9350
 
-##Wins 
+##Wins
 
-Complementing our strengths and weakness as a group. 
+Complementing our strengths and weakness as a group.
 
 <<<<<<< HEAD
 Getting the 'hang' of using Git Command in a team
@@ -120,7 +117,7 @@ function splitIntoSpans(text) {
 
 * Sockets for multiplyer usage.
 
-* WPM calculation 
+* WPM calculation
 
 ##Technnologies Used
 
@@ -153,13 +150,7 @@ Bower
 Tachyons
 Yarn
 jQuery
->>>>>>> 30201cb2f3fcf27289ea885f4705b30d535a9350
 
 ## MADE BY IPA MASTERS
 
 <img src='/Users/MonjuMiah/Desktop/Group Project/TeamPhoto.jpg'>
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 30201cb2f3fcf27289ea885f4705b30d535a9350
