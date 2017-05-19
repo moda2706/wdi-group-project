@@ -62,7 +62,7 @@ Level
     seconds: 20
   }
 ])
-.then(levels => {
+.then(() => {
   process.exit();
 })
 .catch(err => {

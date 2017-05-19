@@ -11,7 +11,6 @@
     <h1 class="levelShow br2 dib f4 bg-near-black white mv0 pv2 ph3">Level: {{ levelsShow.level.index }}</h1>
 
     <h1 id="scoreField" ng-model="scoreField" class="scoreShow br2 dib f4 bg-near-black white mv0 pv2 ph3">Score: 0</h1>
-    <h1 id="speedField" ng-model="speedField" class="wpmShow br2 dib f4 bg-near-black white mv0 pv2 ph3">Speed: {{ 45 }} wpm</h1>
     <h1 id="secondsField" ng-model="secondsField" class="fr secondsShow br2 dib f4 bg-near-black white mv0 pv2 ph3">Seconds left: {{ levelsShow.level.seconds }}</h1>
     <p keypress-events class="black f4 levelText" id="textSource" ng-model="textSource"></p>
     <textarea id="textInput" autofocus name="comment" form="usrform" ng-trim="false" ng-model="textInput" ng-change="output()">Enter text here...</textarea>
