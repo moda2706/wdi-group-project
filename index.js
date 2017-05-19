@@ -14,12 +14,11 @@ const port         = process.env.PORT || 4000;
 
 const errorHandler = require('./lib/errors');
 
-
 mongoose.Promise   = require('bluebird');
 
 app.use(express.static(dest));
 
-mongoose.connect(env.db);
+mongoose.connect(env.db[process.env.NODE_ENV]);
 
 app.use(cors());
 app.use(morgan('dev'));
