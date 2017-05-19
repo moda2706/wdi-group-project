@@ -43,6 +43,10 @@ function ShowIndexCtrl(Level, $stateParams, $scope, $rootScope, User, CurrentUse
     }
   });
 
+  $('#textInput').bind('cut copy paste',function(e) {
+    e.preventDefault();
+  });
+
   $('body').click(function() {
     // do something here
     $scope.$textInput = $('#textInput').focus();
